@@ -130,17 +130,17 @@ namespace Retroboy
 			PrintRooms();
 			print("Rooms printed: " + sw.Elapsed.ToString());
 
-			//PrintCorridors();
-			//print("Corridors printed: " + sw.Elapsed.ToString());
+			PrintCorridors();
+			print("Corridors printed: " + sw.Elapsed.ToString());
 
-			CreateTeleports();
-			print("Teleports printed: " + sw.Elapsed.ToString());
+			CloseGaps();
+			print("Gaps Closed: " + sw.Elapsed);
 
-			//CloseGaps();
-			//print("Gaps Closed: " + sw.Elapsed);
+			RemoveBadTiles();
+			print("Bad tiles removed: " + sw.Elapsed.ToString());
 
-			//RemoveBadTiles();
-			//print("Bad tiles removed: " + sw.Elapsed.ToString());
+			//CreateTeleports();
+			//print("Teleports printed: " + sw.Elapsed.ToString());
 
 			PlaceWalls();
 			print("Walls placed: " + sw.Elapsed.ToString());
