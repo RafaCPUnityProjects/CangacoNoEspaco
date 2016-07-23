@@ -1,0 +1,141 @@
+fileFormatVersion: 2
+guid: ed4ca15bea18da44188436093f6562be
+timeCreated: 1462309921
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: Banana_Attack_W_0
+    21300002: Banana_Attack_W_1
+    21300004: Banana_Attack_W_2
+    21300006: Banana_Attack_W_3
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 7
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -3
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: 0
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  allowsAlphaSplitting: 0
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 75
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: Banana_Attack_W_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 50
+        height: 50
+      alignment: 9
+      pivot: {x: 0.7926544, y: 0.019510293}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -2.632721, y: 38.024483}
+        - {x: -9.632721, y: 26.024485}
+        - {x: -9.632721, y: 14.024485}
+        - {x: -5.632721, y: 1.0244846}
+        - {x: -2.632721, y: -0.97551537}
+        - {x: 2.367279, y: -0.97551537}
+        - {x: 7.367279, y: 7.0244846}
+        - {x: 7.367279, y: 38.024483}
+    - name: Banana_Attack_W_1
+      rect:
+        serializedVersion: 2
+        x: 50
+        y: 0
+        width: 50
+        height: 50
+      alignment: 9
+      pivot: {x: 0.66778857, y: 0.011706178}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -8.389427, y: 37.414692}
+        - {x: -10.389427, y: 36.414692}
+        - {x: -18.389427, y: 27.414692}
+        - {x: -18.389427, y: 22.414692}
+        - {x: -13.389427, y: 9.414692}
+        - {x: 1.6105728, y: -0.5853081}
+        - {x: 10.610573, y: -0.5853081}
+        - {x: 10.610573, y: 22.414692}
+        - {x: 5.610573, y: 37.414692}
+    - name: Banana_Attack_W_2
+      rect:
+        serializedVersion: 2
+        x: 100
+        y: 0
+        width: 50
+        height: 50
+      alignment: 9
+      pivot: {x: 0.5897473, y: 0.0039020614}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -22.487366, y: 18.804897}
+        - {x: -22.487366, y: 13.804897}
+        - {x: -21.487366, y: 11.804897}
+        - {x: -16.487366, y: 5.8048973}
+        - {x: -4.4873657, y: -0.19510269}
+        - {x: 17.512634, y: -0.19510269}
+        - {x: 17.512634, y: 5.8048973}
+        - {x: 11.512634, y: 20.804897}
+        - {x: 4.5126343, y: 25.804897}
+        - {x: -3.4873657, y: 25.804897}
+        - {x: -19.487366, y: 22.804897}
+    - name: Banana_Attack_W_3
+      rect:
+        serializedVersion: 2
+        x: 150
+        y: 0
+        width: 50
+        height: 50
+      alignment: 9
+      pivot: {x: 0.5429227, y: 0.0000000028637623}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -23.146133, y: 18}
+        - {x: -25.146133, y: 15}
+        - {x: -25.146133, y: 4}
+        - {x: -21.146133, y: 0}
+        - {x: 7.8538666, y: 0}
+        - {x: 20.853867, y: 8}
+        - {x: 20.853867, y: 17}
+        - {x: 10.853867, y: 18}
+    outline: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -1,0 +1,230 @@
+fileFormatVersion: 2
+guid: 5ac76f1d9faa9be42b53049abc89ca80
+timeCreated: 1460424178
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: Nim_Walk_0
+    21300002: Nim_Walk_1
+    21300004: Nim_Walk_2
+    21300006: Nim_Walk_3
+    21300008: Nim_Walk_4
+    21300010: Nim_Walk_5
+    21300012: Nim_Walk_6
+    21300014: Nim_Walk_7
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 7
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -3
+  maxTextureSize: 1024
+  textureSettings:
+    filterMode: 0
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  allowsAlphaSplitting: 0
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 75
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: Nim_Walk_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 36
+        height: 41
+      alignment: 9
+      pivot: {x: 0.56, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -6.16, y: 39}
+        - {x: -10.16, y: 36}
+        - {x: -15.16, y: 29}
+        - {x: -15.16, y: 15}
+        - {x: -13.16, y: 14}
+        - {x: -9.16, y: 13}
+        - {x: -10.16, y: 14}
+        - {x: -9.16, y: 10}
+        - {x: -9.16, y: 8}
+        - {x: 7.84, y: 8}
+        - {x: 10.84, y: 9}
+        - {x: 12.84, y: 12}
+        - {x: 12.84, y: 34}
+        - {x: 11.84, y: 39}
+    - name: Nim_Walk_1
+      rect:
+        serializedVersion: 2
+        x: 36
+        y: 0
+        width: 36
+        height: 41
+      alignment: 9
+      pivot: {x: 0.56, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 11.84, y: 36}
+        - {x: 8.84, y: 41}
+        - {x: -7.16, y: 41}
+        - {x: -15.16, y: 36}
+        - {x: -15.16, y: 14}
+        - {x: -12.16, y: 13}
+        - {x: -9.16, y: 13}
+        - {x: -7.16, y: 14}
+        - {x: -9.16, y: 11}
+        - {x: -10.16, y: 7}
+        - {x: -7.16, y: 6}
+        - {x: 8.84, y: 6}
+        - {x: 13.84, y: 17}
+        - {x: 13.84, y: 23}
+    - name: Nim_Walk_2
+      rect:
+        serializedVersion: 2
+        x: 72
+        y: 0
+        width: 36
+        height: 41
+      alignment: 9
+      pivot: {x: 0.56, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -6.1600037, y: 41}
+        - {x: -14.160004, y: 38}
+        - {x: -14.160004, y: 9}
+        - {x: -7.1600037, y: 4}
+        - {x: 4.8399963, y: 4}
+        - {x: 11.839996, y: 10}
+        - {x: 11.839996, y: 36}
+        - {x: 5.8399963, y: 41}
+    - name: Nim_Walk_3
+      rect:
+        serializedVersion: 2
+        x: 108
+        y: 0
+        width: 36
+        height: 41
+      alignment: 9
+      pivot: {x: 0.56, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -3.1600037, y: 39}
+        - {x: -14.160004, y: 35}
+        - {x: -14.160004, y: 22}
+        - {x: -8.160004, y: 4}
+        - {x: 8.839996, y: 4}
+        - {x: 11.839996, y: 11}
+        - {x: 11.839996, y: 38}
+        - {x: 9.839996, y: 39}
+    - name: Nim_Walk_4
+      rect:
+        serializedVersion: 2
+        x: 144
+        y: 0
+        width: 36
+        height: 41
+      alignment: 9
+      pivot: {x: 0.56, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -11.160004, y: 40}
+        - {x: -16.160004, y: 32}
+        - {x: -16.160004, y: 18}
+        - {x: -10.160004, y: 10}
+        - {x: -9.160004, y: 9}
+        - {x: 10.839996, y: 9}
+        - {x: 10.839996, y: 40}
+    - name: Nim_Walk_5
+      rect:
+        serializedVersion: 2
+        x: 180
+        y: 0
+        width: 36
+        height: 41
+      alignment: 9
+      pivot: {x: 0.56, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -2.1600037, y: 41}
+        - {x: -7.1600037, y: 40}
+        - {x: -16.160004, y: 34}
+        - {x: -16.160004, y: 21}
+        - {x: -11.160004, y: 6}
+        - {x: 8.839996, y: 6}
+        - {x: 10.839996, y: 14}
+        - {x: 10.839996, y: 36}
+        - {x: 8.839996, y: 41}
+    - name: Nim_Walk_6
+      rect:
+        serializedVersion: 2
+        x: 216
+        y: 0
+        width: 36
+        height: 41
+      alignment: 9
+      pivot: {x: 0.56, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 4.8399963, y: 40}
+        - {x: -6.1600037, y: 40}
+        - {x: -16.160004, y: 33}
+        - {x: -16.160004, y: 26}
+        - {x: -7.1600037, y: 4}
+        - {x: 5.8399963, y: 4}
+        - {x: 9.839996, y: 12}
+        - {x: 11.839996, y: 22}
+        - {x: 11.839996, y: 37}
+    - name: Nim_Walk_7
+      rect:
+        serializedVersion: 2
+        x: 252
+        y: 0
+        width: 36
+        height: 41
+      alignment: 9
+      pivot: {x: 0.56, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -5.1600037, y: 38}
+        - {x: -15.160004, y: 33}
+        - {x: -15.160004, y: 8}
+        - {x: -5.1600037, y: 4}
+        - {x: 8.839996, y: 4}
+        - {x: 10.839996, y: 15}
+        - {x: 10.839996, y: 33}
+        - {x: 8.839996, y: 38}
+    outline: []
+  spritePackingTag: retro_nim
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

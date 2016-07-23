@@ -1,0 +1,169 @@
+fileFormatVersion: 2
+guid: 69d25ca8636505947a5e371bf2cc5d5e
+timeCreated: 1460167061
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: Nim_Idle_N_0
+    21300002: Nim_Idle_N_1
+    21300004: Nim_Idle_N_2
+    21300006: Nim_Idle_N_3
+    21300008: Nim_Idle_N_4
+    21300010: Nim_Idle_N_5
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 7
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -3
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: 0
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  allowsAlphaSplitting: 0
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 75
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: Nim_Idle_N_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 36
+        height: 41
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -12, y: 37}
+        - {x: -12, y: 4}
+        - {x: 9, y: 4}
+        - {x: 12, y: 8}
+        - {x: 12, y: 36}
+        - {x: 7, y: 37}
+    - name: Nim_Idle_N_1
+      rect:
+        serializedVersion: 2
+        x: 36
+        y: 0
+        width: 36
+        height: 41
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 6, y: 37}
+        - {x: -8, y: 37}
+        - {x: -12, y: 33}
+        - {x: -12, y: 8}
+        - {x: -8, y: 4}
+        - {x: 8, y: 4}
+        - {x: 11, y: 9}
+        - {x: 12, y: 18}
+        - {x: 12, y: 32}
+    - name: Nim_Idle_N_2
+      rect:
+        serializedVersion: 2
+        x: 72
+        y: 0
+        width: 36
+        height: 41
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -12, y: 36}
+        - {x: -12, y: 6}
+        - {x: -11, y: 4}
+        - {x: 9, y: 4}
+        - {x: 14, y: 9}
+        - {x: 14, y: 36}
+    - name: Nim_Idle_N_3
+      rect:
+        serializedVersion: 2
+        x: 108
+        y: 0
+        width: 36
+        height: 41
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -11, y: 35}
+        - {x: -12, y: 34}
+        - {x: -12, y: 14}
+        - {x: -9, y: 4}
+        - {x: 14, y: 4}
+        - {x: 14, y: 30}
+        - {x: 12, y: 35}
+    - name: Nim_Idle_N_4
+      rect:
+        serializedVersion: 2
+        x: 144
+        y: 0
+        width: 36
+        height: 41
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -12, y: 35}
+        - {x: -12, y: 4}
+        - {x: 11, y: 4}
+        - {x: 14, y: 11}
+        - {x: 14, y: 32}
+        - {x: 11, y: 35}
+    - name: Nim_Idle_N_5
+      rect:
+        serializedVersion: 2
+        x: 180
+        y: 0
+        width: 36
+        height: 41
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -8, y: 36}
+        - {x: -12, y: 35}
+        - {x: -12, y: 6}
+        - {x: -11, y: 4}
+        - {x: 12, y: 4}
+        - {x: 12, y: 36}
+    outline: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

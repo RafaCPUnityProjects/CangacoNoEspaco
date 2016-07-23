@@ -1,0 +1,22 @@
+{275669c6-8161-4a30-9104-090a755b3dee} event:/Enemies/EnemyDeath
+{be8135cd-648b-4692-8ec0-88a28593b046} event:/Enemies/PineappleExplosion
+{c91211b3-3e62-4875-914d-618a29ebcba0} event:/Nim/Life/NimHurt
+{48f480c3-69f8-4edc-81c1-a15b1a13d92a} event:/Nim/Life/PickLife
+{40edf05c-1ab1-45ad-bf75-9eb97a5fb8cc} event:/Nim/Nim attack/ApplePunch
+{d9a6c0dd-7e89-4477-928f-3d87a991994a} event:/Nim/Nim attack/GranadePineapple
+{97e356f8-a2be-473f-b4cd-4308bf23c03c} event:/Nim/Nim attack/WatermelonShot
+{aa6c4cab-9b13-4508-a317-59f44076e5c8} event:/Nim/Pick up Weapon/PickApplePunch
+{3b3046ee-9fce-46e2-a30d-d7bf271f479d} event:/Nim/Pick up Weapon/PickGranadePineapple
+{ac328f9e-9472-4722-8d1a-047edb040d45} event:/Nim/Pick up Weapon/PickWatermelonShot
+{60c5b489-3d12-4a77-a831-7fd3be88f022} event:/Reward/PickBit
+{4eeefda7-cba4-446c-a234-f752a7c703cf} event:/Music
+{0d653ec5-5ddc-4ca3-9881-95ccef74a027} event:/TitleScreen
+{d78183f0-40f5-4a5b-8f53-e5aaf9960195} bus:/
+{d72309a8-e5dd-4b73-b684-d3c17d67fcdd} bus:/EnemyDeath
+{42162fbf-81d3-42ca-bafc-2607e3e36e80} bus:/Music
+{a2500f1a-9b04-49b0-ad20-a4e706de18a1} bus:/NimAttack
+{9701e967-2840-472a-99d4-f899315f8821} bus:/NimHurt
+{dfb5e8a9-0cf0-41bf-9bbc-2789f1f6033e} bus:/PickUpWeapon
+{77041081-178b-4f33-9059-838be5006206} bus:/Rewards
+{348cbf73-d36c-4c43-9c73-b9f1077a90a4} bus:/Reverb
+{d22c49e9-3cba-46fe-afcb-deb35ebcf4cf} bank:/Master Bank

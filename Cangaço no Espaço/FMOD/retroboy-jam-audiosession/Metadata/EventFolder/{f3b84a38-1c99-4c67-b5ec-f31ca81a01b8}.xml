@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.01.08.00">
+    <object class="EventFolder" id="{f3b84a38-1c99-4c67-b5ec-f31ca81a01b8}">
+        <property name="name">
+            <value>Nim attack</value>
+        </property>
+        <relationship name="folder">
+            <destination>{7932f7dd-5871-4a79-9daf-33ed0781fbfd}</destination>
+        </relationship>
+    </object>
+</objects>

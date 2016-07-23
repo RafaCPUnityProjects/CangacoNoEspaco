@@ -1,0 +1,271 @@
+fileFormatVersion: 2
+guid: 688775d340bd84a4ea23d33fec0e5de9
+timeCreated: 1460698169
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: Banana_attack_E_0
+    21300002: Banana_attack_E_1
+    21300004: Banana_attack_E_2
+    21300006: Banana_attack_E_3
+    21300008: Banana_attack_E_4
+    21300010: Banana_attack_E_5
+    21300012: Banana_attack_E_6
+    21300014: Banana_attack_E_7
+    21300016: Banana_attack_E_8
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 7
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -3
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: 0
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  allowsAlphaSplitting: 0
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 75
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: Banana_attack_E_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 55
+        height: 43
+      alignment: 9
+      pivot: {x: 0.7112829, y: 0.17257072}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 6.8794403, y: 24.57946}
+        - {x: -8.12056, y: 24.57946}
+        - {x: -16.12056, y: 13.579459}
+        - {x: -16.12056, y: 6.579459}
+        - {x: -14.12056, y: 2.5794592}
+        - {x: -8.12056, y: -2.4205408}
+        - {x: 9.87944, y: -2.4205408}
+        - {x: 15.87944, y: 9.579459}
+        - {x: 15.87944, y: 14.579459}
+    - name: Banana_attack_E_1
+      rect:
+        serializedVersion: 2
+        x: 55
+        y: 0
+        width: 55
+        height: 43
+      alignment: 9
+      pivot: {x: 0.60844535, y: 0.18748055}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 13.535507, y: 22.938335}
+        - {x: -11.464493, y: 22.938335}
+        - {x: -15.464493, y: 21.938335}
+        - {x: -15.464493, y: 6.9383364}
+        - {x: -12.464493, y: -2.0616636}
+        - {x: 9.535507, y: -2.0616636}
+        - {x: 14.535507, y: 0.9383364}
+        - {x: 16.535507, y: 5.9383364}
+        - {x: 16.535507, y: 17.938335}
+    - name: Banana_attack_E_2
+      rect:
+        serializedVersion: 2
+        x: 110
+        y: 0
+        width: 55
+        height: 43
+      alignment: 9
+      pivot: {x: 0.46266702, y: 0.0768971}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -0.4466858, y: 24.693424}
+        - {x: -3.4466858, y: 23.693424}
+        - {x: -6.446686, y: 24.693424}
+        - {x: -15.446686, y: 24.693424}
+        - {x: -15.446686, y: -2.3065758}
+        - {x: 6.553314, y: -2.3065758}
+        - {x: 14.553314, y: 0.6934242}
+        - {x: 14.553314, y: 11.693424}
+        - {x: 11.553314, y: 18.693424}
+    - name: Banana_attack_E_3
+      rect:
+        serializedVersion: 2
+        x: 165
+        y: 0
+        width: 55
+        height: 43
+      alignment: 9
+      pivot: {x: 0.37384865, y: 0.09954459}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -0.561676, y: 24.719582}
+        - {x: -15.561676, y: 24.719582}
+        - {x: -15.561676, y: -2.2804184}
+        - {x: 6.438324, y: -2.2804184}
+        - {x: 14.438324, y: 0.7195816}
+        - {x: 14.438324, y: 11.719582}
+        - {x: 11.438324, y: 18.719582}
+    - name: Banana_attack_E_4
+      rect:
+        serializedVersion: 2
+        x: 220
+        y: 0
+        width: 55
+        height: 43
+      alignment: 9
+      pivot: {x: 0.32, y: 0.033}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 9.399994, y: 24.581}
+        - {x: -10.600006, y: 24.581}
+        - {x: -14.600006, y: 22.581}
+        - {x: -14.600006, y: -0.41900063}
+        - {x: -12.600006, y: -1.4190006}
+        - {x: 13.399994, y: -1.4190006}
+        - {x: 14.399994, y: 1.5809994}
+        - {x: 15.399994, y: 5.5809994}
+        - {x: 15.399994, y: 17.581}
+    - name: Banana_attack_E_5
+      rect:
+        serializedVersion: 2
+        x: 275
+        y: 0
+        width: 55
+        height: 43
+      alignment: 9
+      pivot: {x: 0.32, y: 0.033}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -15.600006, y: 39.581}
+        - {x: -17.600006, y: 37.581}
+        - {x: -17.600006, y: 7.5809994}
+        - {x: -11.600006, y: -1.4190006}
+        - {x: 19.399994, y: -1.4190006}
+        - {x: 19.399994, y: 34.581}
+        - {x: 7.399994, y: 39.581}
+    - name: Banana_attack_E_6
+      rect:
+        serializedVersion: 2
+        x: 330
+        y: 0
+        width: 55
+        height: 43
+      alignment: 9
+      pivot: {x: 0.32, y: 0.033}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -14.600006, y: 41.581}
+        - {x: -14.600006, y: -1.4190006}
+        - {x: 15.399994, y: -1.4190006}
+        - {x: 15.399994, y: 30.581}
+        - {x: 12.399994, y: 41.581}
+    - name: Banana_attack_E_7
+      rect:
+        serializedVersion: 2
+        x: 385
+        y: 0
+        width: 55
+        height: 43
+      alignment: 9
+      pivot: {x: 0.32, y: 0.033}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -2.600006, y: 41.581}
+        - {x: -3.600006, y: 23.581}
+        - {x: -0.6000061, y: 20.581}
+        - {x: 0.3999939, y: 20.581}
+        - {x: 2.399994, y: 22.581}
+        - {x: 5.399994, y: 19.581}
+        - {x: 6.399994, y: 19.581}
+        - {x: 7.399994, y: 17.581}
+        - {x: 3.399994, y: 20.581}
+        - {x: -9.600006, y: 20.581}
+        - {x: -14.600006, y: 17.581}
+        - {x: -14.600006, y: -1.4190006}
+        - {x: 15.399994, y: -1.4190006}
+        - {x: 15.399994, y: 32.581}
+        - {x: 4.399994, y: 41.581}
+      - - {x: -11.600006, y: 23.581}
+        - {x: -9.600006, y: 21.581}
+        - {x: -7.600006, y: 21.581}
+        - {x: -4.600006, y: 22.581}
+        - {x: -4.600006, y: 39.581}
+        - {x: -7.600006, y: 40.581}
+        - {x: -11.600006, y: 39.581}
+    - name: Banana_attack_E_8
+      rect:
+        serializedVersion: 2
+        x: 440
+        y: 0
+        width: 55
+        height: 43
+      alignment: 9
+      pivot: {x: 0.32, y: 0.033}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 8.399994, y: 26.581}
+        - {x: 8.399994, y: 21.581}
+        - {x: -10.600006, y: 21.581}
+        - {x: -14.600006, y: 17.581}
+        - {x: -14.600006, y: 2.5809994}
+        - {x: -8.600006, y: -1.4190006}
+        - {x: 8.399994, y: -1.4190006}
+        - {x: 15.399994, y: 2.5809994}
+        - {x: 15.399994, y: 27.581}
+        - {x: 11.399994, y: 27.581}
+      - - {x: 3.399994, y: 36.581}
+        - {x: 3.399994, y: 20.581}
+        - {x: 4.399994, y: 19.581}
+        - {x: 7.399994, y: 19.581}
+        - {x: 8.399994, y: 20.581}
+        - {x: 8.399994, y: 36.581}
+        - {x: 6.399994, y: 37.581}
+      - - {x: -10.600006, y: 27.581}
+        - {x: -8.600006, y: 25.581}
+        - {x: -5.600006, y: 26.581}
+        - {x: -5.600006, y: 37.581}
+        - {x: -7.600006, y: 39.581}
+        - {x: -10.600006, y: 38.581}
+      - - {x: -2.600006, y: 28.581}
+        - {x: -0.6000061, y: 26.581}
+        - {x: 2.399994, y: 27.581}
+        - {x: 2.399994, y: 38.581}
+        - {x: 0.3999939, y: 40.581}
+        - {x: -2.600006, y: 39.581}
+    outline: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

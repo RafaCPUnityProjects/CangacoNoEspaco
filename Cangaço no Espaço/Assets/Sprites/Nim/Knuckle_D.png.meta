@@ -1,0 +1,229 @@
+fileFormatVersion: 2
+guid: 4e6100ce7408804469a1dea379a8e6d8
+timeCreated: 1457552104
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: Knuckle_D_0
+    21300002: Knuckle_D_1
+    21300004: Knuckle_D_2
+    21300006: Knuckle_D_3
+    21300008: Knuckle_D_4
+    21300010: Knuckle_D_5
+    21300012: Knuckle_D_6
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 7
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -3
+  maxTextureSize: 1024
+  textureSettings:
+    filterMode: 0
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  allowsAlphaSplitting: 0
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 75
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: Knuckle_D_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 36
+        height: 41
+      alignment: 2
+      pivot: {x: 0.5, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -11, y: -6}
+        - {x: -10, y: -9}
+        - {x: -1, y: -9}
+        - {x: 1, y: -7}
+        - {x: 0, y: -4}
+        - {x: -9, y: -4}
+    - name: Knuckle_D_1
+      rect:
+        serializedVersion: 2
+        x: 36
+        y: 0
+        width: 36
+        height: 41
+      alignment: 2
+      pivot: {x: 0.5, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 3, y: -3}
+        - {x: -10, y: -3}
+        - {x: -13, y: -5}
+        - {x: -13, y: -12}
+        - {x: -8, y: -18}
+        - {x: -5, y: -18}
+        - {x: 1, y: -17}
+        - {x: 5, y: -13}
+        - {x: 6, y: -6}
+    - name: Knuckle_D_2
+      rect:
+        serializedVersion: 2
+        x: 72
+        y: 0
+        width: 36
+        height: 41
+      alignment: 2
+      pivot: {x: 0.5, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -16, y: -2}
+        - {x: -16, y: -24}
+        - {x: -12, y: -29}
+        - {x: 8, y: -29}
+        - {x: 11, y: -25}
+        - {x: 11, y: -2}
+    - name: Knuckle_D_3
+      rect:
+        serializedVersion: 2
+        x: 108
+        y: 0
+        width: 36
+        height: 41
+      alignment: 2
+      pivot: {x: 0.5, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -16, y: -21}
+        - {x: -14, y: -28}
+        - {x: -12, y: -31}
+        - {x: 4, y: -31}
+        - {x: 11, y: -29}
+        - {x: 11, y: -15}
+        - {x: 8, y: -9}
+        - {x: 3, y: -8}
+        - {x: -6, y: -8}
+        - {x: -16, y: -14}
+    - name: Knuckle_D_4
+      rect:
+        serializedVersion: 2
+        x: 144
+        y: 0
+        width: 36
+        height: 41
+      alignment: 2
+      pivot: {x: 0.5, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -16, y: -13}
+        - {x: -16, y: -27}
+        - {x: -14, y: -33}
+        - {x: 9, y: -33}
+        - {x: 15, y: -30}
+        - {x: 15, y: -13}
+    - name: Knuckle_D_5
+      rect:
+        serializedVersion: 2
+        x: 180
+        y: 0
+        width: 36
+        height: 41
+      alignment: 2
+      pivot: {x: 0.5, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -3, y: -24}
+        - {x: -4, y: -27}
+        - {x: -4, y: -34}
+        - {x: -1, y: -35}
+        - {x: 4, y: -35}
+        - {x: 4, y: -24}
+      - - {x: -12, y: -14}
+        - {x: -17, y: -19}
+        - {x: -17, y: -26}
+        - {x: -13, y: -33}
+        - {x: -10, y: -34}
+        - {x: -4, y: -34}
+        - {x: -4, y: -22}
+        - {x: -7, y: -14}
+      - - {x: 8, y: -15}
+        - {x: 6, y: -16}
+        - {x: 6, y: -30}
+        - {x: 8, y: -31}
+        - {x: 13, y: -31}
+        - {x: 15, y: -28}
+        - {x: 15, y: -18}
+        - {x: 13, y: -15}
+    - name: Knuckle_D_6
+      rect:
+        serializedVersion: 2
+        x: 216
+        y: 0
+        width: 36
+        height: 41
+      alignment: 2
+      pivot: {x: 0.5, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 1, y: -29}
+        - {x: -4, y: -29}
+        - {x: -4, y: -33}
+        - {x: -3, y: -36}
+        - {x: 3, y: -36}
+        - {x: 5, y: -33}
+        - {x: 5, y: -31}
+      - - {x: -14, y: -17}
+        - {x: -17, y: -20}
+        - {x: -17, y: -28}
+        - {x: -13, y: -33}
+        - {x: -9, y: -35}
+        - {x: -6, y: -35}
+        - {x: -4, y: -32}
+        - {x: -4, y: -28}
+        - {x: -11, y: -19}
+      - - {x: 6, y: -29}
+        - {x: 7, y: -32}
+        - {x: 11, y: -32}
+        - {x: 13, y: -31}
+        - {x: 13, y: -27}
+        - {x: 11, y: -25}
+        - {x: 6, y: -27}
+      - - {x: 9, y: -20}
+        - {x: 12, y: -25}
+        - {x: 15, y: -24}
+        - {x: 15, y: -20}
+        - {x: 12, y: -17}
+        - {x: 10, y: -17}
+    outline: []
+  spritePackingTag: retro_nim
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
