@@ -38,7 +38,7 @@ public class MinimapFull : MonoBehaviour
 		//}
 		if (Input.GetButton("Minimap"))
 		{
-			Debug.Log("Minimap button down");
+			//Debug.Log("Minimap button down");
 			if (t <= 1f)
 			{
 				t += minimapTime * Time.deltaTime;
@@ -52,7 +52,7 @@ public class MinimapFull : MonoBehaviour
 		}
 		else
 		{
-			Debug.Log("Minimap button up");
+			//Debug.Log("Minimap button up");
 			if (t >= 0)
 			{
 				t -= minimapTime * Time.deltaTime;

@@ -133,10 +133,10 @@ namespace Retroboy
 			PrintCorridors();
 			print("Corridors printed: " + sw.Elapsed.ToString());
 
-			CloseGaps();
+			//CloseGaps();
 			print("Gaps Closed: " + sw.Elapsed);
 
-			RemoveBadTiles();
+			//RemoveBadTiles();
 			print("Bad tiles removed: " + sw.Elapsed.ToString());
 
 			//CreateTeleports();
