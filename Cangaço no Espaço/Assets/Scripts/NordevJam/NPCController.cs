@@ -3,6 +3,8 @@ using System.Collections;
 
 public class NPCController : MonoBehaviour
 {
+	public Animator myAnimator;
+
 	public tk2dSprite bodySprite;
 	public tk2dSprite headSprite;
 	public tk2dSprite faceSprite;
@@ -11,31 +13,45 @@ public class NPCController : MonoBehaviour
 	public tk2dSprite feetSprite;
 	public tk2dSprite knifeSprite;
 
-	public tk2dSpriteCollection bodyCollection;
-	public tk2dSpriteCollection headCollection;
-	public tk2dSpriteCollection faceCollection;
-	public tk2dSpriteCollection shirtCollection;
-	public tk2dSpriteCollection pantCollection;
-	public tk2dSpriteCollection knifeCollection;
+	//public tk2dSpriteCollection bodyCollection;
+	//public tk2dSpriteCollection headCollection;
+	//public tk2dSpriteCollection faceCollection;
+	//public tk2dSpriteCollection shirtCollection;
+	//public tk2dSpriteCollection pantCollection;
+	//public tk2dSpriteCollection knifeCollection;
 
-	public int bodyNumber;
-	public int headNumber;
-	public int faceNumber;
-	public int shirtNumber;
-	public int pantNumber;
-	public int knifeNumber;
+	public int bodyCount = 4;
+	public int headCount = 9;
+	public int faceCount = 5;
+	public int shirtCount = 8;
+	public int pantCount = 5;
+	public int feetCount = 1;
+	public int knifeCount = 6;
 
+	public float moveSpeed = 0.01f;
 
-	private Animator myAnimator;
+	private Vector2 moveVector;
+	private bool walking;
+	private bool facingLeft = true;
+
 
 	void Start()
 	{
-		myAnimator = GetComponent<Animator>();
+		//myAnimator = GetComponent<Animator>();
 	}
 
 	void Update()
 	{
-		bool walking = Input.GetAxisRaw("Horizontal") != 0 || Input.GetAxisRaw("Vertical") != 0;
+		moveVector = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
+		
+		if(facingLeft && moveVector.x > 0 || !facingLeft && moveVector.x < 0)
+		{
+			Flip();
+		}
+		
+
+		walking = moveVector != Vector2.zero;
+
 		myAnimator.SetBool("Walking", walking);
 
 		if (Input.GetButtonDown("Fire1"))
@@ -47,23 +63,81 @@ public class NPCController : MonoBehaviour
 		{
 			RandomClothing();
 		}
+		if (walking)
+		{
+			Move();
+		}
+	}
+
+	void Move()
+	{
+		transform.Translate(moveVector * moveSpeed);
+	}
+
+	void Flip()
+	{
+		facingLeft = !facingLeft;
+		Vector3 originalScale = transform.localScale;
+		transform.localScale = new Vector3(-originalScale.x, originalScale.y, originalScale.z);
 	}
 
 	void RandomClothing()
 	{
-		int body = Random.Range(0, bodyNumber);
-		int head = Random.Range(0, headNumber);
-		int face = Random.Range(0, faceNumber);
-		int shirt = Random.Range(0, shirtNumber);
-		int pant = Random.Range(0, pantNumber);
-		int knife = Random.Range(0, bodyNumber);
+		int body = Random.Range(0, bodyCount);
+		int head = Random.Range(-1, headCount);
+		int face = Random.Range(-1, faceCount);
+		int shirt = Random.Range(-1, shirtCount);
+		int pant = Random.Range(0, pantCount);
+		int feet = Random.Range(-1, feetCount);
+		int knife = Random.Range(0, bodyCount);
 
 		bodySprite.spriteId = body;
-		headSprite.spriteId = head;
-		Debug.Log("CAbeca id: " + head);
-		faceSprite.spriteId = face;
-		shirtSprite.spriteId = shirt;
+		if (head >= 0)
+		{
+			headSprite.gameObject.SetActive(true);
+			headSprite.spriteId = head;
+		}else
+		{
+			headSprite.gameObject.SetActive(false);
+		}
+		if (face >= 0)
+		{
+			faceSprite.gameObject.SetActive(true);
+			faceSprite.spriteId = head;
+		}
+		else
+		{
+			faceSprite.gameObject.SetActive(false);
+		}
+		if (shirt >= 0)
+		{
+			shirtSprite.gameObject.SetActive(true);
+			shirtSprite.spriteId = head;
+		}
+		else
+		{
+			shirtSprite.gameObject.SetActive(false);
+		}
 		pantSprite.spriteId = pant;
+		if (feet >= 0)
+		{
+			feetSprite.gameObject.SetActive(true);
+			feetSprite.spriteId = head;
+		}
+		else
+		{
+			feetSprite.gameObject.SetActive(false);
+		}
 		knifeSprite.spriteId = knife;
+
+		RescaleTk2dSpriteCollider(knifeSprite);
+	}
+
+	void RescaleTk2dSpriteCollider(tk2dSprite target)
+	{
+		Vector2 S = target.GetBounds().size;
+		BoxCollider2D targetCollider = target.GetComponent<BoxCollider2D>();
+		targetCollider.size = S;
+		targetCollider.offset = Vector2.zero;// = new Vector2((S.x/2f), (S.y/2f));
 	}
 }
