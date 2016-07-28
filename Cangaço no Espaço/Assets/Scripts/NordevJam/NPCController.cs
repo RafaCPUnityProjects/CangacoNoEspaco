@@ -34,14 +34,25 @@ public class NPCController : MonoBehaviour
 
 	public BoxCollider2D peixeiraCollider;
 
+	public BodyInfo myBodyInfo;
+
+	public Transform target;
+
 	private Vector2 moveVector;
 	private bool walking;
 	private bool facingLeft = true;
 	private int strenght;
 
+	public float minDistance = 1f;
+	public float maxDistance = 5f;
+	private float distance;
+
 	void Start()
 	{
-		//myAnimator = GetComponent<Animator>();
+		if (NPC)
+		{
+			target = GameObject.FindGameObjectWithTag("Player").transform;
+		}
 	}
 
 	void Update()
@@ -57,7 +68,36 @@ public class NPCController : MonoBehaviour
 
 			if (Input.GetButtonDown("Fire2"))
 			{
-				RandomClothing();
+				RandomizeMyClothing();
+			}
+		}
+		else
+		{
+			distance = Vector3.Distance(transform.position, target.position);
+			//Vector3 direction = target.position - transform.position;
+			//Debug.DrawRay(transform.position, direction);
+			//RaycastHit2D hit = Physics2D.Raycast(transform.position, direction);
+			//Debug.Log("Hit: " + hit.collider.name);
+			//if (hit.collider.tag != "Wall")
+			//{
+				if (distance < maxDistance)
+				{
+					if (distance > minDistance)
+					{
+						moveVector = Vector3.Normalize(target.position - transform.position);
+					}
+					else
+					{
+						if (!myAnimator.GetCurrentAnimatorStateInfo(0).IsName("NPC Attack"))
+						{
+							myAnimator.SetTrigger("Attack");
+						}
+					}
+				}
+			//}
+			else
+			{
+				moveVector = Vector2.zero;
 			}
 		}
 
@@ -70,7 +110,7 @@ public class NPCController : MonoBehaviour
 
 		myAnimator.SetBool("Walking", walking);
 
-		
+
 		if (walking)
 		{
 			Move();
@@ -89,7 +129,7 @@ public class NPCController : MonoBehaviour
 		transform.localScale = new Vector3(-originalScale.x, originalScale.y, originalScale.z);
 	}
 
-	void RandomClothing()
+	public void RandomizeMyClothing()
 	{
 		int body = Random.Range(0, bodyCount);
 		int head = Random.Range(-1, headCount);
@@ -99,45 +139,64 @@ public class NPCController : MonoBehaviour
 		int feet = Random.Range(-1, feetCount);
 		int knife = Random.Range(0, bodyCount);
 
-		bodySprite.spriteId = body;
-		if (head >= 0)
+		myBodyInfo = new BodyInfo(body, head, face, shirt, pant, feet, knife);
+
+		DressPlayer();
+	}
+
+	public void DressPlayer(BodyInfo bodyInfo)
+	{
+		myBodyInfo = bodyInfo;
+		DressPlayer();
+	}
+
+	private void DressPlayer()
+	{
+		bodySprite.spriteId = myBodyInfo.body;
+
+		if (myBodyInfo.head >= 0)
 		{
 			headSprite.gameObject.SetActive(true);
-			headSprite.spriteId = head;
+			headSprite.spriteId = myBodyInfo.head;
 		}
 		else
 		{
 			headSprite.gameObject.SetActive(false);
 		}
-		if (face >= 0)
+
+		if (myBodyInfo.face >= 0)
 		{
 			faceSprite.gameObject.SetActive(true);
-			faceSprite.spriteId = head;
+			faceSprite.spriteId = myBodyInfo.head;
 		}
 		else
 		{
 			faceSprite.gameObject.SetActive(false);
 		}
-		if (shirt >= 0)
+
+		if (myBodyInfo.shirt >= 0)
 		{
 			shirtSprite.gameObject.SetActive(true);
-			shirtSprite.spriteId = head;
+			shirtSprite.spriteId = myBodyInfo.head;
 		}
 		else
 		{
 			shirtSprite.gameObject.SetActive(false);
 		}
-		pantSprite.spriteId = pant;
-		if (feet >= 0)
+
+		pantSprite.spriteId = myBodyInfo.pant;
+
+		if (myBodyInfo.feet >= 0)
 		{
 			feetSprite.gameObject.SetActive(true);
-			feetSprite.spriteId = head;
+			feetSprite.spriteId = myBodyInfo.feet;
 		}
 		else
 		{
 			feetSprite.gameObject.SetActive(false);
 		}
-		knifeSprite.spriteId = knife;
+
+		knifeSprite.spriteId = myBodyInfo.knife;
 
 		RescaleTk2dSpriteCollider(knifeSprite);
 	}
@@ -158,7 +217,7 @@ public class NPCController : MonoBehaviour
 			{
 				if (other.tag == "Punchable")
 				{
-					other.GetComponent<NPCController>().TakeDamage(strenght);
+					other.transform.parent.parent.GetComponent<NPCController>().TakeDamage(strenght);
 				}
 			}
 		}
@@ -167,5 +226,32 @@ public class NPCController : MonoBehaviour
 	public void TakeDamage(int strenght)
 	{
 		Debug.Log(name + " took " + strenght + " damage");
+	}
+}
+
+public struct BodyInfo
+{
+	public int body;
+	public int head;
+	public int face;
+	public int shirt;
+	public int pant;
+	public int feet;
+	public int knife;
+
+	public BodyInfo(int body, int head, int face, int shirt, int pant, int feet, int knife)
+	{
+		this.body = body;
+		this.head = head;
+		this.face = face;
+		this.shirt = shirt;
+		this.pant = pant;
+		this.feet = feet;
+		this.knife = knife;
+	}
+
+	public void ChangeKnife(int knife)
+	{
+		this.knife = knife;
 	}
 }
