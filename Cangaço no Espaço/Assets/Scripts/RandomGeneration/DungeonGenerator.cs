@@ -194,7 +194,7 @@ namespace Retroboy
 			allRooms[closestToCenterIndex].SetRoomType(RoomType.start);
 
 			SetRoomLevels(closestToCenterIndex);
-			PlaceNim();
+			PlacePlayer();
 			DefineRoomTypes();
 			PopulateRooms();
 		}
@@ -300,11 +300,11 @@ namespace Retroboy
 			}
 		}
 
-		private void PlaceNim()
+		private void PlacePlayer()
 		{
 			List<Room> startRoom = new List<Room>();
 			startRoom.Add(startingRoom);
-			PrintInRandomRoom(startRoom, Tiles.nim, true);
+			PrintInRandomRoom(startRoom, Tiles.player, true);
 		}
 
 		private void PopulateRooms()
@@ -1347,53 +1347,104 @@ namespace Retroboy
 		public static VecInt[] orthogonal = { N, S, E, W };
 	}
 
+	//[System.Serializable]
+	//public class Tiles
+	//{
+	//	public static int
+	//		empty = -1,
+	//		filled = -2,
+
+	//		floor = 5,
+
+	//		wallTop = 9,
+	//		wallRight = 4,
+	//		wallBottom = 1,
+	//		wallLeft = 6,
+
+	//		wallTopRightConcave = 13,
+	//		wallBottomRightConcave = 17,
+	//		wallBottomLeftConcave = 16,
+	//		wallTopLeftConcave = 12,
+
+	//		wallTopRightConvex = 2,
+	//		wallBottomRightConvex = 10,
+	//		wallBottomLeftConvex = 8,
+	//		wallTopLeftConvex = 0,
+
+	//		holeCenter = 25,
+
+	//		holeTop = 21,
+	//		holeRight = 26,
+	//		holeBottom = 57,
+	//		holeLeft = 24,
+
+	//		holeTopRight = 22,
+	//		holeBottomRight = 58,
+	//		holeBottomLeft = 56,
+	//		holeTopLeft = 20,
+
+	//		nim = 3,
+
+	//		simpleApple = 28,
+	//		simplePineapple = 29,
+	//		simpleWatermelon = 30,
+	//		simpleBanana = 31,
+
+	//		superApple = 32,
+	//		superPineapple = 33,
+	//		superWatermelon = 34,
+	//		superBanana = 35;
+
+	//	public static int[] normalEnemies = { simpleApple, simpleBanana, simplePineapple, simpleWatermelon };
+	//	public static int[] superEnemies = { superApple, superBanana, superPineapple, superWatermelon };
+	//}
 	[System.Serializable]
 	public class Tiles
 	{
 		public static int
-			empty = -1,
-			filled = -2,
+			empty = 0,
+			filled = 0,
 
 			floor = 5,
 
-			wallTop = 9,
-			wallRight = 4,
-			wallBottom = 1,
-			wallLeft = 6,
+			wallTop = 0,
+			wallRight = 0,
+			wallBottom = 0,
+			wallLeft = 0,
 
-			wallTopRightConcave = 13,
-			wallBottomRightConcave = 17,
-			wallBottomLeftConcave = 16,
-			wallTopLeftConcave = 12,
+			wallTopRightConcave = 0,
+			wallBottomRightConcave = 0,
+			wallBottomLeftConcave = 0,
+			wallTopLeftConcave = 0,
 
-			wallTopRightConvex = 2,
-			wallBottomRightConvex = 10,
-			wallBottomLeftConvex = 8,
+			wallTopRightConvex = 0,
+			wallBottomRightConvex = 0,
+			wallBottomLeftConvex = 0,
 			wallTopLeftConvex = 0,
 
-			holeCenter = 25,
+			holeCenter = 0,
 
-			holeTop = 21,
-			holeRight = 26,
-			holeBottom = 57,
-			holeLeft = 24,
+			holeTop = 0,
+			holeRight = 0,
+			holeBottom = 0,
+			holeLeft = 0,
 
-			holeTopRight = 22,
-			holeBottomRight = 58,
-			holeBottomLeft = 56,
-			holeTopLeft = 20,
+			holeTopRight = 0,
+			holeBottomRight = 0,
+			holeBottomLeft = 0,
+			holeTopLeft = 0,
 
-			nim = 3,
+			player = 1,
 
-			simpleApple = 28,
-			simplePineapple = 29,
-			simpleWatermelon = 30,
-			simpleBanana = 31,
+			simpleApple = 0,
+			simplePineapple = 0,
+			simpleWatermelon = 0,
+			simpleBanana = 0,
 
-			superApple = 32,
-			superPineapple = 33,
-			superWatermelon = 34,
-			superBanana = 35;
+			superApple = 0,
+			superPineapple = 0,
+			superWatermelon = 0,
+			superBanana = 0;
 
 		public static int[] normalEnemies = { simpleApple, simpleBanana, simplePineapple, simpleWatermelon };
 		public static int[] superEnemies = { superApple, superBanana, superPineapple, superWatermelon };

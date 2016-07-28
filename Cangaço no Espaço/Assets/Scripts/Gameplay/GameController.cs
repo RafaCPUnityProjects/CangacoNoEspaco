@@ -236,8 +236,8 @@ public class GameController : MonoBehaviour
 
     void ChangeCamera()
     {
-        if (cameraFollow != null)
-            cameraFollow.SetTarget("Boss");
+        //if (cameraFollow != null)
+            //cameraFollow.SetTarget("Boss");
     }
 
     void ShowBossTitle()
@@ -266,7 +266,7 @@ public class GameController : MonoBehaviour
     {
 
         if (cameraFollow != null)
-            cameraFollow.SetTarget("Player");
+            //cameraFollow.SetTarget("Player");
 
         if (bossCanvas != null)
             bossCanvas.enabled = false;

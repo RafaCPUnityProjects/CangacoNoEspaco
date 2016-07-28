@@ -1,6 +1,5 @@
 ﻿using UnityEngine;
 using System.Collections;
-//using System;
 
 public class NPCController : MonoBehaviour
 {
@@ -45,6 +44,12 @@ public class NPCController : MonoBehaviour
 
 	public float minDistance = 1f;
 	public float maxDistance = 5f;
+
+	public Vector2 GetInput()
+	{
+		return moveVector;
+	}
+
 	private float distance;
 
 	void Start()
@@ -54,6 +59,8 @@ public class NPCController : MonoBehaviour
 			target = GameObject.FindGameObjectWithTag("Player").transform;
 		}
 	}
+
+
 
 	void Update()
 	{
@@ -80,20 +87,20 @@ public class NPCController : MonoBehaviour
 			//Debug.Log("Hit: " + hit.collider.name);
 			//if (hit.collider.tag != "Wall")
 			//{
-				if (distance < maxDistance)
+			if (distance < maxDistance)
+			{
+				if (distance > minDistance)
 				{
-					if (distance > minDistance)
+					moveVector = Vector3.Normalize(target.position - transform.position);
+				}
+				else
+				{
+					if (!myAnimator.GetCurrentAnimatorStateInfo(0).IsName("NPC Attack"))
 					{
-						moveVector = Vector3.Normalize(target.position - transform.position);
-					}
-					else
-					{
-						if (!myAnimator.GetCurrentAnimatorStateInfo(0).IsName("NPC Attack"))
-						{
-							myAnimator.SetTrigger("Attack");
-						}
+						myAnimator.SetTrigger("Attack");
 					}
 				}
+			}
 			//}
 			else
 			{
@@ -218,6 +225,10 @@ public class NPCController : MonoBehaviour
 				if (other.tag == "Punchable")
 				{
 					other.transform.parent.parent.GetComponent<NPCController>().TakeDamage(strenght);
+				}
+				else if (other.tag == "Tall Grass")
+				{
+					Destroy(other.gameObject);
 				}
 			}
 		}
