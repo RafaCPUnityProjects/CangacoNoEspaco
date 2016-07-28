@@ -1,8 +1,10 @@
 ﻿using UnityEngine;
 using System.Collections;
+//using System;
 
 public class NPCController : MonoBehaviour
 {
+	public bool NPC = true;
 	public Animator myAnimator;
 
 	public tk2dSprite bodySprite;
@@ -30,10 +32,12 @@ public class NPCController : MonoBehaviour
 
 	public float moveSpeed = 0.01f;
 
+	public BoxCollider2D peixeiraCollider;
+
 	private Vector2 moveVector;
 	private bool walking;
 	private bool facingLeft = true;
-
+	private int strenght;
 
 	void Start()
 	{
@@ -42,27 +46,31 @@ public class NPCController : MonoBehaviour
 
 	void Update()
 	{
-		moveVector = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
-		
-		if(facingLeft && moveVector.x > 0 || !facingLeft && moveVector.x < 0)
+		if (!NPC)
+		{
+			moveVector = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
+
+			if (Input.GetButtonDown("Fire1"))
+			{
+				myAnimator.SetTrigger("Attack");
+			}
+
+			if (Input.GetButtonDown("Fire2"))
+			{
+				RandomClothing();
+			}
+		}
+
+		if (facingLeft && moveVector.x > 0 || !facingLeft && moveVector.x < 0)
 		{
 			Flip();
 		}
-		
 
 		walking = moveVector != Vector2.zero;
 
 		myAnimator.SetBool("Walking", walking);
 
-		if (Input.GetButtonDown("Fire1"))
-		{
-			myAnimator.SetTrigger("Attack");
-		}
-
-		if (Input.GetButtonDown("Fire2"))
-		{
-			RandomClothing();
-		}
+		
 		if (walking)
 		{
 			Move();
@@ -96,7 +104,8 @@ public class NPCController : MonoBehaviour
 		{
 			headSprite.gameObject.SetActive(true);
 			headSprite.spriteId = head;
-		}else
+		}
+		else
 		{
 			headSprite.gameObject.SetActive(false);
 		}
@@ -139,5 +148,24 @@ public class NPCController : MonoBehaviour
 		BoxCollider2D targetCollider = target.GetComponent<BoxCollider2D>();
 		targetCollider.size = S;
 		targetCollider.offset = Vector2.zero;// = new Vector2((S.x/2f), (S.y/2f));
+	}
+
+	void OnTriggerEnter2D(Collider2D other)
+	{
+		if (myAnimator.GetCurrentAnimatorStateInfo(0).IsName("NPC Attack"))
+		{
+			if (peixeiraCollider.IsTouching(other))
+			{
+				if (other.tag == "Punchable")
+				{
+					other.GetComponent<NPCController>().TakeDamage(strenght);
+				}
+			}
+		}
+	}
+
+	public void TakeDamage(int strenght)
+	{
+		Debug.Log(name + " took " + strenght + " damage");
 	}
 }
