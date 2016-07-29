@@ -15,6 +15,8 @@ public class NPCController : MonoBehaviour
 	public tk2dSprite feetSprite;
 	public tk2dSprite knifeSprite;
 
+
+
 	//public tk2dSpriteCollection bodyCollection;
 	//public tk2dSpriteCollection headCollection;
 	//public tk2dSpriteCollection faceCollection;
@@ -30,33 +32,26 @@ public class NPCController : MonoBehaviour
 	public int feetCount = 1;
 	public int knifeCount = 6;
 
-	public float moveSpeed = 0.01f;
-
 	public BoxCollider2D peixeiraCollider;
 
-	public BodyInfo myBodyInfo;
-
 	public Transform target;
+
+	public float minDistance = 1f;
+	public float maxDistance = 5f;
+	public bool imTheBoss = false;
+
+	[SerializeField]
+	public BodyInfo myBodyInfo;
 
 	private Vector2 moveVector;
 	private bool walking;
 	private bool facingLeft = true;
 	private int currentStrength;
 
-	public float minDistance = 1f;
-	public float maxDistance = 5f;
-
-	public int startStrength = 1;
-	public int maxLife = 5;
-	private int currentLife;
-
-	public Vector2 GetInput()
-	{
-		return moveVector;
-	}
-
 	private float distance;
-	private bool dead;
+	private int currentLife;
+	private bool dead = false;
+
 
 	void Start()
 	{
@@ -64,11 +59,31 @@ public class NPCController : MonoBehaviour
 		{
 			target = GameObject.FindGameObjectWithTag("Player").transform;
 		}
-		currentLife = maxLife;
-		currentStrength = startStrength;
+		else
+		{
+			RandomizeMyClothing();
+		}
+		currentLife = myBodyInfo.maxLife;
+		currentStrength = myBodyInfo.strength;
 	}
 
-
+	void OnTriggerEnter2D(Collider2D other)
+	{
+		if (myAnimator.GetCurrentAnimatorStateInfo(0).IsName("NPC Attack"))
+		{
+			if (peixeiraCollider.IsTouching(other))
+			{
+				if (other.tag == "Punchable")
+				{
+					other.transform.parent.parent.GetComponent<NPCController>().TakeDamage(currentStrength);
+				}
+				else if (other.tag == "Tall Grass")
+				{
+					Destroy(other.gameObject);
+				}
+			}
+		}
+	}
 
 	void Update()
 	{
@@ -82,13 +97,16 @@ public class NPCController : MonoBehaviour
 
 			if (Input.GetButtonDown("Fire1"))
 			{
-				myAnimator.SetTrigger("Attack");
+				if (myBodyInfo.knife != -1)
+				{
+					myAnimator.SetTrigger("Attack");
+				}
 			}
 
-			if (Input.GetButtonDown("Fire2"))
-			{
-				RandomizeMyClothing();
-			}
+			//if (Input.GetButtonDown("Fire2"))
+			//{
+			//	RandomizeMyClothing();
+			//}
 		}
 		else
 		{
@@ -109,7 +127,10 @@ public class NPCController : MonoBehaviour
 				{
 					if (!myAnimator.GetCurrentAnimatorStateInfo(0).IsName("NPC Attack"))
 					{
-						myAnimator.SetTrigger("Attack");
+						if (myBodyInfo.knife != -1)
+						{
+							myAnimator.SetTrigger("Attack");
+						}
 					}
 				}
 			}
@@ -138,7 +159,7 @@ public class NPCController : MonoBehaviour
 
 	void Move()
 	{
-		transform.Translate(moveVector * moveSpeed);
+		transform.Translate(moveVector * myBodyInfo.speed);
 	}
 
 	void Flip()
@@ -148,7 +169,7 @@ public class NPCController : MonoBehaviour
 		transform.localScale = new Vector3(-originalScale.x, originalScale.y, originalScale.z);
 	}
 
-	public void RandomizeMyClothing()
+	public void RandomizeMyClothing(bool starterPlayer = false)
 	{
 		int body = UnityEngine.Random.Range(0, bodyCount);
 		int head = UnityEngine.Random.Range(-1, headCount);
@@ -156,10 +177,25 @@ public class NPCController : MonoBehaviour
 		int shirt = UnityEngine.Random.Range(-1, shirtCount);
 		int pant = UnityEngine.Random.Range(0, pantCount);
 		int feet = UnityEngine.Random.Range(-1, feetCount);
-		int knife = UnityEngine.Random.Range(0, bodyCount);
+		int knife;
+		if (starterPlayer)
+		{
+			knife = -1;
+		}
+		else
+		{
+			knife = UnityEngine.Random.Range(0, knifeCount);
+		}
 
 		myBodyInfo = new BodyInfo(body, head, face, shirt, pant, feet, knife);
 
+		DressPlayer();
+	}
+
+	public void LoadBossInfo()
+	{
+		myBodyInfo = myBodyInfo.GetSavedBody();
+		imTheBoss = true;
 		DressPlayer();
 	}
 
@@ -215,9 +251,16 @@ public class NPCController : MonoBehaviour
 			feetSprite.gameObject.SetActive(false);
 		}
 
-		knifeSprite.spriteId = myBodyInfo.knife;
-
-		RescaleTk2dSpriteCollider(knifeSprite);
+		if (myBodyInfo.knife >= 0)
+		{
+			knifeSprite.gameObject.SetActive(true);
+			knifeSprite.spriteId = myBodyInfo.knife;
+			RescaleTk2dSpriteCollider(knifeSprite);
+		}
+		else
+		{
+			knifeSprite.gameObject.SetActive(false);
+		}
 	}
 
 	void RescaleTk2dSpriteCollider(tk2dSprite target)
@@ -228,29 +271,60 @@ public class NPCController : MonoBehaviour
 		targetCollider.offset = Vector2.zero;// = new Vector2((S.x/2f), (S.y/2f));
 	}
 
-	void OnTriggerEnter2D(Collider2D other)
+	public Vector2 GetInput()
 	{
-		if (myAnimator.GetCurrentAnimatorStateInfo(0).IsName("NPC Attack"))
+		return moveVector;
+	}
+
+	public void PickNormalWeapon(float spriteId)
+	{
+		myBodyInfo.knife = (int)spriteId;
+		DressPlayer();
+	}
+
+	public void PickBigWeapon(float spriteId)
+	{
+		myBodyInfo.knife = (int)spriteId;
+		DressPlayer();
+	}
+
+	public void PickHealth(float health)
+	{
+		int life = currentLife + (int)health;
+		if (life > myBodyInfo.maxLife)
 		{
-			if (peixeiraCollider.IsTouching(other))
-			{
-				if (other.tag == "Punchable")
-				{
-					other.transform.parent.parent.GetComponent<NPCController>().TakeDamage(currentStrength);
-				}
-				else if (other.tag == "Tall Grass")
-				{
-					Destroy(other.gameObject);
-				}
-			}
+			currentLife = myBodyInfo.maxLife;
+		}
+		else if (life <= 0)
+		{
+			currentLife = 0;
+			Die();
 		}
 	}
+
+	public void PickHealthBuff(float healthBuff)
+	{
+		myBodyInfo.maxLife += (int)healthBuff;
+		PickHealth(myBodyInfo.maxLife);
+	}
+
+	public void PickSpeedBuff(float speedBuff)
+	{
+		myBodyInfo.speed += speedBuff;
+	}
+
+	public void PickStrengthBuff(float strengthBuff)
+	{
+		myBodyInfo.strength += (int)strengthBuff;
+	}
+
+	
 
 	public void TakeDamage(int strength)
 	{
 		Debug.Log(name + " took " + strength + " damage");
 		currentLife -= strength;
-		if(currentLife <= 0)
+		if (currentLife <= 0)
 		{
 			Die();
 		}
@@ -260,9 +334,24 @@ public class NPCController : MonoBehaviour
 	{
 		dead = true;
 		myAnimator.SetTrigger("Dead");
+		if (imTheBoss)
+		{
+			myBodyInfo.SaveBody();
+			Debug.Log("You won this time...");
+		}
+		else if (!NPC)
+		{
+			Debug.Log("You lost the game, try again");
+		}
+	}
+
+	void RestartGame()
+	{
+		UnityEngine.SceneManagement.SceneManager.LoadScene(1);
 	}
 }
 
+[System.Serializable]
 public struct BodyInfo
 {
 	public int body;
@@ -272,6 +361,23 @@ public struct BodyInfo
 	public int pant;
 	public int feet;
 	public int knife;
+	public int maxLife;
+	public float speed;
+	public int strength;
+
+	public BodyInfo(int body, int head, int face, int shirt, int pant, int feet, int knife, int maxLife, float speed, int strength)
+	{
+		this.body = body;
+		this.head = head;
+		this.face = face;
+		this.shirt = shirt;
+		this.pant = pant;
+		this.feet = feet;
+		this.knife = knife;
+		this.maxLife = maxLife;
+		this.speed = speed;
+		this.strength = strength;
+	}
 
 	public BodyInfo(int body, int head, int face, int shirt, int pant, int feet, int knife)
 	{
@@ -282,10 +388,38 @@ public struct BodyInfo
 		this.pant = pant;
 		this.feet = feet;
 		this.knife = knife;
+		this.maxLife = 3;
+		this.speed = 0.01f;
+		this.strength = 1;
 	}
 
-	public void ChangeKnife(int knife)
+	public void SaveBody()
 	{
-		this.knife = knife;
+		PlayerPrefs.SetInt("Body", body);
+		PlayerPrefs.SetInt("Head", head);
+		PlayerPrefs.SetInt("Face", face);
+		PlayerPrefs.SetInt("Shirt", shirt);
+		PlayerPrefs.SetInt("Pant", pant);
+		PlayerPrefs.SetInt("Feet", feet);
+		PlayerPrefs.SetInt("Knife", knife);
+		PlayerPrefs.SetInt("MaxLife", maxLife);
+		PlayerPrefs.SetFloat("Speed", speed);
+		PlayerPrefs.SetInt("Strength", strength);
+
+	}
+
+	public BodyInfo GetSavedBody()
+	{
+		body = PlayerPrefs.GetInt("Body", 0);
+		head = PlayerPrefs.GetInt("Head", -1);
+		face = PlayerPrefs.GetInt("Face", -1);
+		shirt = PlayerPrefs.GetInt("Shirt", -1);
+		pant = PlayerPrefs.GetInt("Pant", 0);
+		feet = PlayerPrefs.GetInt("Feet", -1);
+		knife = PlayerPrefs.GetInt("Knife", 0);
+		maxLife = PlayerPrefs.GetInt("MaxLife", 3);
+		speed = PlayerPrefs.GetFloat("Speed", 0.01f);
+		strength = PlayerPrefs.GetInt("Strength", 1);
+		return new BodyInfo(body, head, face, shirt, pant, feet, knife, maxLife, speed, strength);
 	}
 }
