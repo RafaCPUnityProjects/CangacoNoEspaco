@@ -7,7 +7,7 @@ public class RandomEnemyInstantiator : MonoBehaviour
 
 	void Start()
 	{
-		GameObject enemy = (GameObject)Instantiate(enemyPrefab);
+		GameObject enemy = (GameObject)Instantiate(enemyPrefab, transform.position, Quaternion.identity);
 		NPCController npcController = enemy.GetComponent<NPCController>();
 		npcController.RandomizeMyClothing();
 		Destroy(this.gameObject);
