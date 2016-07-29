@@ -36,6 +36,10 @@ public class NPCController : MonoBehaviour
 
 	public Transform target;
 
+	public GameObject[] possibleDrops;
+	[Range(0.0f, 1.0f)]
+	public float dropChance;
+
 	public float minDistance = 1f;
 	public float maxDistance = 5f;
 	public bool imTheBoss = false;
@@ -80,6 +84,9 @@ public class NPCController : MonoBehaviour
 				else if (other.tag == "Tall Grass")
 				{
 					Destroy(other.gameObject);
+				}else if(other.tag == "Barril")
+				{
+					other.GetComponent<BarrilController>().DropItem();
 				}
 			}
 		}
@@ -318,7 +325,7 @@ public class NPCController : MonoBehaviour
 		myBodyInfo.strength += (int)strengthBuff;
 	}
 
-	
+
 
 	public void TakeDamage(int strength)
 	{
@@ -334,14 +341,34 @@ public class NPCController : MonoBehaviour
 	{
 		dead = true;
 		myAnimator.SetTrigger("Dead");
-		if (imTheBoss)
+		if (NPC)
 		{
-			myBodyInfo.SaveBody();
-			Debug.Log("You won this time...");
+
+			if (imTheBoss)
+			{
+				myBodyInfo.SaveBody();
+				Debug.Log("You won this time...");
+			}
+			else
+			{
+				DropItem();
+			}
 		}
-		else if (!NPC)
+		else
 		{
 			Debug.Log("You lost the game, try again");
+		}
+	}
+
+	private void DropItem()
+	{
+		if (UnityEngine.Random.Range(0.0f, 1.0f) <= dropChance)
+		{
+			if (possibleDrops.Length > 0)
+			{
+				GameObject go = possibleDrops[UnityEngine.Random.Range(0, possibleDrops.Length)];
+				Instantiate(go, transform.position, Quaternion.identity);
+			}
 		}
 	}
 
