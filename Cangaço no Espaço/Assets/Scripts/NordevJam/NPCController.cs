@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using System.Collections;
 
 public class NPCController : MonoBehaviour
@@ -40,10 +41,14 @@ public class NPCController : MonoBehaviour
 	private Vector2 moveVector;
 	private bool walking;
 	private bool facingLeft = true;
-	private int strenght;
+	private int currentStrength;
 
 	public float minDistance = 1f;
 	public float maxDistance = 5f;
+
+	public int startStrength = 1;
+	public int maxLife = 5;
+	private int currentLife;
 
 	public Vector2 GetInput()
 	{
@@ -51,6 +56,7 @@ public class NPCController : MonoBehaviour
 	}
 
 	private float distance;
+	private bool dead;
 
 	void Start()
 	{
@@ -58,13 +64,19 @@ public class NPCController : MonoBehaviour
 		{
 			target = GameObject.FindGameObjectWithTag("Player").transform;
 		}
+		currentLife = maxLife;
+		currentStrength = startStrength;
 	}
 
 
 
 	void Update()
 	{
-		if (!NPC)
+		if (dead)
+		{
+			moveVector = Vector2.zero;
+		}
+		else if (!NPC)
 		{
 			moveVector = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
 
@@ -138,13 +150,13 @@ public class NPCController : MonoBehaviour
 
 	public void RandomizeMyClothing()
 	{
-		int body = Random.Range(0, bodyCount);
-		int head = Random.Range(-1, headCount);
-		int face = Random.Range(-1, faceCount);
-		int shirt = Random.Range(-1, shirtCount);
-		int pant = Random.Range(0, pantCount);
-		int feet = Random.Range(-1, feetCount);
-		int knife = Random.Range(0, bodyCount);
+		int body = UnityEngine.Random.Range(0, bodyCount);
+		int head = UnityEngine.Random.Range(-1, headCount);
+		int face = UnityEngine.Random.Range(-1, faceCount);
+		int shirt = UnityEngine.Random.Range(-1, shirtCount);
+		int pant = UnityEngine.Random.Range(0, pantCount);
+		int feet = UnityEngine.Random.Range(-1, feetCount);
+		int knife = UnityEngine.Random.Range(0, bodyCount);
 
 		myBodyInfo = new BodyInfo(body, head, face, shirt, pant, feet, knife);
 
@@ -224,7 +236,7 @@ public class NPCController : MonoBehaviour
 			{
 				if (other.tag == "Punchable")
 				{
-					other.transform.parent.parent.GetComponent<NPCController>().TakeDamage(strenght);
+					other.transform.parent.parent.GetComponent<NPCController>().TakeDamage(currentStrength);
 				}
 				else if (other.tag == "Tall Grass")
 				{
@@ -234,9 +246,20 @@ public class NPCController : MonoBehaviour
 		}
 	}
 
-	public void TakeDamage(int strenght)
+	public void TakeDamage(int strength)
 	{
-		Debug.Log(name + " took " + strenght + " damage");
+		Debug.Log(name + " took " + strength + " damage");
+		currentLife -= strength;
+		if(currentLife <= 0)
+		{
+			Die();
+		}
+	}
+
+	private void Die()
+	{
+		dead = true;
+		myAnimator.SetTrigger("Dead");
 	}
 }
 
