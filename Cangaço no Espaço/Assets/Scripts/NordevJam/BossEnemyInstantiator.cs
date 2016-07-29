@@ -8,6 +8,7 @@ public class BossEnemyInstantiator : MonoBehaviour
 	void Start()
 	{
 		GameObject enemy = (GameObject)Instantiate(enemyPrefab, transform.position, Quaternion.identity);
+		enemy.tag = "Boss";
 		NPCController npcController = enemy.GetComponent<NPCController>();
 		
 		npcController.LoadBossInfo();

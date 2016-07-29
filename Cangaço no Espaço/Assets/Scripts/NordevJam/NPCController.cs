@@ -15,15 +15,6 @@ public class NPCController : MonoBehaviour
 	public tk2dSprite feetSprite;
 	public tk2dSprite knifeSprite;
 
-
-
-	//public tk2dSpriteCollection bodyCollection;
-	//public tk2dSpriteCollection headCollection;
-	//public tk2dSpriteCollection faceCollection;
-	//public tk2dSpriteCollection shirtCollection;
-	//public tk2dSpriteCollection pantCollection;
-	//public tk2dSpriteCollection knifeCollection;
-
 	public int bodyCount = 4;
 	public int headCount = 9;
 	public int faceCount = 5;
@@ -56,6 +47,7 @@ public class NPCController : MonoBehaviour
 	private int currentLife;
 	private bool dead = false;
 
+	public NDJGameController gameController;
 
 	void Start()
 	{
@@ -84,7 +76,8 @@ public class NPCController : MonoBehaviour
 				else if (other.tag == "Tall Grass")
 				{
 					Destroy(other.gameObject);
-				}else if(other.tag == "Barril")
+				}
+				else if(other.tag == "Barril")
 				{
 					other.GetComponent<BarrilController>().DropItem();
 				}
@@ -347,7 +340,7 @@ public class NPCController : MonoBehaviour
 			if (imTheBoss)
 			{
 				myBodyInfo.SaveBody();
-				Debug.Log("You won this time...");
+				gameController.BossDefeated();
 			}
 			else
 			{
@@ -356,7 +349,7 @@ public class NPCController : MonoBehaviour
 		}
 		else
 		{
-			Debug.Log("You lost the game, try again");
+			gameController.PlayerDefeated();
 		}
 	}
 
