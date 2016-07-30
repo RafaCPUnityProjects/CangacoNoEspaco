@@ -9,6 +9,9 @@ public class NDJGameController : MonoBehaviour
 	public HUDController hudController;
 	public GameObject grayscaleCamera;
 	public Vector3 bossOffset;
+	public GameObject splashScreen;
+	public GameObject winScreen;
+	public GameObject loseScreen;
 
 	private Transform player;
 	private Transform boss;
@@ -23,6 +26,8 @@ public class NDJGameController : MonoBehaviour
 	void Start()
 	{
 		grayscaleCamera.SetActive(false);
+		winScreen.SetActive(false);
+		loseScreen.SetActive(false);
 		StartCoroutine(LookAtBoss());
 	}
 
@@ -61,7 +66,7 @@ public class NDJGameController : MonoBehaviour
 
 	IEnumerator LookAtPlayer()
 	{
-
+		splashScreen.SetActive(false);
 		float elapsedTime = 0.0f;
 		while (Vector3.Distance(cameraTarget.position, player.position) > 0.1f)
 		{
@@ -106,6 +111,7 @@ public class NDJGameController : MonoBehaviour
 	{
 		deathCount = 0;
 		playerController.myBodyInfo.SaveBody();
+		winScreen.SetActive(true);
 		ActivateGrayscale();
 		Invoke("RestartScene", 5f);
 	}
@@ -113,6 +119,7 @@ public class NDJGameController : MonoBehaviour
 	public void PlayerDefeated()
 	{
 		deathCount++;
+		loseScreen.SetActive(true);
 		ActivateGrayscale();
 		Invoke("RestartScene", 5f);
 	}
