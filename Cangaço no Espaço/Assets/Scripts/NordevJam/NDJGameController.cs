@@ -6,6 +6,7 @@ public class NDJGameController : MonoBehaviour
 {
 	public float timeToShowBoss = 5f;
 	public float timeToPlayer = 5f;
+	public HUDController hudController;
 
 	private Transform player;
 	private Transform boss;
@@ -29,6 +30,9 @@ public class NDJGameController : MonoBehaviour
 		playerController = player.GetComponent<NPCController>();
 		playerController.gameController = this;
 		playerController.canMove = false;
+		ChangeHealth(playerController.myBodyInfo.maxLife, playerController.myBodyInfo.maxLife);
+		ChangeStrength(playerController.myBodyInfo.strength);
+		ChangeSpeed(playerController.myBodyInfo.speed);
 		cameraTarget = GameObject.FindGameObjectWithTag("CameraTarget").transform;
 		cameraTarget.position = boss.position;
 		yield return null;
@@ -62,6 +66,21 @@ public class NDJGameController : MonoBehaviour
 			gameStarted = true;
 			StartCoroutine(LookAtPlayer());
 		}
+	}
+
+	public void ChangeHealth(int currentHealth, int maxHealth)
+	{
+		hudController.SetLife(currentHealth, maxHealth);
+	}
+
+	public void ChangeSpeed(int currentSpeed)
+	{
+		hudController.SetSpeed(currentSpeed);
+	}
+
+	public void ChangeStrength(int currentStrength)
+	{
+		hudController.SetStrength(currentStrength);
 	}
 
 	public void BossDefeated()

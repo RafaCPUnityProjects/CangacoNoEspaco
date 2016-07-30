@@ -4,7 +4,7 @@ using System.Collections;
 public class PickableItem : MonoBehaviour
 {
 	public PickableItemType myType;
-	public float modifier = 1f;
+	public int modifier = 1;
 
 	void OnTriggerEnter2D(Collider2D other)
 	{

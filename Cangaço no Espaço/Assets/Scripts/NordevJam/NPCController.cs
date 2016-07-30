@@ -41,7 +41,7 @@ public class NPCController : MonoBehaviour
 	private Vector2 moveVector;
 	private bool walking;
 	private bool facingLeft = true;
-	private int currentStrength;
+	//private int currentStrength;
 
 	private float distance;
 	private int currentLife;
@@ -49,6 +49,7 @@ public class NPCController : MonoBehaviour
 
 	public NDJGameController gameController;
 	public bool canMove = true;
+	private float speedMultiplier = 0.01f;
 
 	void Start()
 	{
@@ -59,9 +60,10 @@ public class NPCController : MonoBehaviour
 		else
 		{
 			RandomizeMyClothing();
+			
 		}
 		currentLife = myBodyInfo.maxLife;
-		currentStrength = myBodyInfo.strength;
+		//currentStrength = myBodyInfo.strength;
 	}
 
 	void OnTriggerEnter2D(Collider2D other)
@@ -72,7 +74,7 @@ public class NPCController : MonoBehaviour
 			{
 				if (other.tag == "Punchable")
 				{
-					other.transform.parent.parent.GetComponent<NPCController>().TakeDamage(currentStrength);
+					other.transform.parent.parent.GetComponent<NPCController>().TakeDamage(myBodyInfo.strength);
 				}
 				else if (other.tag == "Tall Grass")
 				{
@@ -160,7 +162,7 @@ public class NPCController : MonoBehaviour
 
 	void Move()
 	{
-		transform.Translate(moveVector * myBodyInfo.speed);
+		transform.Translate(moveVector * myBodyInfo.speed * speedMultiplier);
 	}
 
 	void Flip()
@@ -277,21 +279,21 @@ public class NPCController : MonoBehaviour
 		return moveVector;
 	}
 
-	public void PickNormalWeapon(float spriteId)
+	public void PickNormalWeapon(int spriteId)
 	{
-		myBodyInfo.knife = (int)spriteId;
+		myBodyInfo.knife = spriteId;
 		DressPlayer();
 	}
 
-	public void PickBigWeapon(float spriteId)
+	public void PickBigWeapon(int spriteId)
 	{
-		myBodyInfo.knife = (int)spriteId;
+		myBodyInfo.knife = spriteId;
 		DressPlayer();
 	}
 
-	public void PickHealth(float health)
+	public void PickHealth(int health)
 	{
-		int life = currentLife + (int)health;
+		int life = currentLife + health;
 		if (life > myBodyInfo.maxLife)
 		{
 			currentLife = myBodyInfo.maxLife;
@@ -301,30 +303,36 @@ public class NPCController : MonoBehaviour
 			currentLife = 0;
 			Die();
 		}
+
+		gameController.ChangeHealth(currentLife, myBodyInfo.maxLife);
 	}
 
-	public void PickHealthBuff(float healthBuff)
+	public void PickHealthBuff(int healthBuff)
 	{
-		myBodyInfo.maxLife += (int)healthBuff;
+		myBodyInfo.maxLife += healthBuff;
 		PickHealth(myBodyInfo.maxLife);
 	}
 
-	public void PickSpeedBuff(float speedBuff)
+	public void PickSpeedBuff(int speedBuff)
 	{
 		myBodyInfo.speed += speedBuff;
+		gameController.ChangeSpeed(myBodyInfo.speed);
 	}
 
-	public void PickStrengthBuff(float strengthBuff)
+	public void PickStrengthBuff(int strengthBuff)
 	{
 		myBodyInfo.strength += (int)strengthBuff;
+		gameController.ChangeStrength(myBodyInfo.strength);
 	}
-
-
 
 	public void TakeDamage(int strength)
 	{
 		Debug.Log(name + " took " + strength + " damage");
 		currentLife -= strength;
+		if (!NPC)
+		{
+			gameController.ChangeHealth(currentLife, myBodyInfo.maxLife);
+		}
 		if (currentLife <= 0)
 		{
 			Die();
@@ -382,10 +390,10 @@ public struct BodyInfo
 	public int feet;
 	public int knife;
 	public int maxLife;
-	public float speed;
+	public int speed;
 	public int strength;
 
-	public BodyInfo(int body, int head, int face, int shirt, int pant, int feet, int knife, int maxLife, float speed, int strength)
+	public BodyInfo(int body, int head, int face, int shirt, int pant, int feet, int knife, int maxLife, int speed, int strength)
 	{
 		this.body = body;
 		this.head = head;
@@ -409,7 +417,7 @@ public struct BodyInfo
 		this.feet = feet;
 		this.knife = knife;
 		this.maxLife = 3;
-		this.speed = 0.01f;
+		this.speed = 1;
 		this.strength = 1;
 	}
 
@@ -423,7 +431,7 @@ public struct BodyInfo
 		PlayerPrefs.SetInt("Feet", feet);
 		PlayerPrefs.SetInt("Knife", knife);
 		PlayerPrefs.SetInt("MaxLife", maxLife);
-		PlayerPrefs.SetFloat("Speed", speed);
+		PlayerPrefs.SetInt("Speed", speed);
 		PlayerPrefs.SetInt("Strength", strength);
 
 	}
@@ -438,7 +446,7 @@ public struct BodyInfo
 		feet = PlayerPrefs.GetInt("Feet", -1);
 		knife = PlayerPrefs.GetInt("Knife", 0);
 		maxLife = PlayerPrefs.GetInt("MaxLife", 3);
-		speed = PlayerPrefs.GetFloat("Speed", 0.01f);
+		speed = PlayerPrefs.GetInt("Speed", 1);
 		strength = PlayerPrefs.GetInt("Strength", 1);
 		return new BodyInfo(body, head, face, shirt, pant, feet, knife, maxLife, speed, strength);
 	}
