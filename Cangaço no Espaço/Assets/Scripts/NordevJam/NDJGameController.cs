@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 public class NDJGameController : MonoBehaviour
 {
@@ -9,7 +10,8 @@ public class NDJGameController : MonoBehaviour
 	private Transform player;
 	private Transform boss;
 	private Transform cameraTarget;
-
+	private NPCController playerController;
+	private NPCController bossController;
 	private int deathCount;
 
 	void Start()
@@ -22,9 +24,12 @@ public class NDJGameController : MonoBehaviour
 	{
 		yield return null;
 		boss = GameObject.FindGameObjectWithTag("Boss").transform;
-		boss.GetComponent<NPCController>().gameController = this;
+		bossController = boss.GetComponent<NPCController>();
+		bossController.gameController = this;
 		player = GameObject.FindGameObjectWithTag("Player").transform;
-		player.GetComponent<NPCController>().gameController = this;
+		playerController = player.GetComponent<NPCController>();
+		playerController.gameController = this;
+		playerController.canMove = false;
 		cameraTarget = GameObject.FindGameObjectWithTag("CameraTarget").transform;
 		yield return null;
 		cameraTarget.position = boss.position;
@@ -36,16 +41,24 @@ public class NDJGameController : MonoBehaviour
 			yield return null;
 			elapsedTime += Time.deltaTime;
 		}
-		cameraTarget.position = player.position;
+		cameraTarget.localPosition = Vector3.zero;
+		playerController.canMove = true;
 	}
 
 	public void BossDefeated()
 	{
-
+		playerController.myBodyInfo.SaveBody();
+		Invoke("RestartScene", 5f);
 	}
 
 	public void PlayerDefeated()
 	{
+		Invoke("RestartScene", 5f);
 
+	}
+
+	void RestartScene()
+	{
+		SceneManager.LoadScene(1);
 	}
 }

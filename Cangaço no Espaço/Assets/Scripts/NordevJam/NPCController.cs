@@ -48,6 +48,7 @@ public class NPCController : MonoBehaviour
 	private bool dead = false;
 
 	public NDJGameController gameController;
+	public bool canMove = true;
 
 	void Start()
 	{
@@ -77,7 +78,7 @@ public class NPCController : MonoBehaviour
 				{
 					Destroy(other.gameObject);
 				}
-				else if(other.tag == "Barril")
+				else if (other.tag == "Barril")
 				{
 					other.GetComponent<BarrilController>().DropItem();
 				}
@@ -87,7 +88,7 @@ public class NPCController : MonoBehaviour
 
 	void Update()
 	{
-		if (dead)
+		if (dead || !canMove)
 		{
 			moveVector = Vector2.zero;
 		}
@@ -339,7 +340,6 @@ public class NPCController : MonoBehaviour
 
 			if (imTheBoss)
 			{
-				myBodyInfo.SaveBody();
 				gameController.BossDefeated();
 			}
 			else
