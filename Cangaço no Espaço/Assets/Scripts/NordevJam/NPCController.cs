@@ -60,7 +60,7 @@ public class NPCController : MonoBehaviour
 		else
 		{
 			RandomizeMyClothing();
-			
+
 		}
 		currentLife = myBodyInfo.maxLife;
 		//currentStrength = myBodyInfo.strength;
@@ -293,12 +293,12 @@ public class NPCController : MonoBehaviour
 
 	public void PickHealth(int health)
 	{
-		int life = currentLife + health;
-		if (life > myBodyInfo.maxLife)
+		currentLife += health;
+		if (currentLife > myBodyInfo.maxLife)
 		{
 			currentLife = myBodyInfo.maxLife;
 		}
-		else if (life <= 0)
+		else if (currentLife <= 0)
 		{
 			currentLife = 0;
 			Die();
