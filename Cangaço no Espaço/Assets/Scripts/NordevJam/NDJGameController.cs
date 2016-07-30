@@ -58,6 +58,8 @@ public class NDJGameController : MonoBehaviour
 		ChangeHealth(playerController.myBodyInfo.maxLife, playerController.myBodyInfo.maxLife);
 		ChangeStrength(playerController.myBodyInfo.strength);
 		ChangeSpeed(playerController.myBodyInfo.speed);
+		splashScreen.SetActive(true);
+		hudController.gameObject.SetActive(false);
 		cameraTarget.position = boss.position + bossOffset;
 		gameReady = true;
 		yield return null;
@@ -67,6 +69,7 @@ public class NDJGameController : MonoBehaviour
 	IEnumerator LookAtPlayer()
 	{
 		splashScreen.SetActive(false);
+		hudController.gameObject.SetActive(true);
 		float elapsedTime = 0.0f;
 		while (Vector3.Distance(cameraTarget.position, player.position) > 0.1f)
 		{
