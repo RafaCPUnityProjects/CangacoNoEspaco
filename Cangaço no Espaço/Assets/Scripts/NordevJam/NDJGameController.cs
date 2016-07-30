@@ -47,14 +47,15 @@ public class NDJGameController : MonoBehaviour
 
 	public void BossDefeated()
 	{
+		deathCount = 0;
 		playerController.myBodyInfo.SaveBody();
 		Invoke("RestartScene", 5f);
 	}
 
 	public void PlayerDefeated()
 	{
+		deathCount++;
 		Invoke("RestartScene", 5f);
-
 	}
 
 	void RestartScene()
