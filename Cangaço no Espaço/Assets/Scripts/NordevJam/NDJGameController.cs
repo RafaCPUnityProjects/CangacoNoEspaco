@@ -17,6 +17,7 @@ public class NDJGameController : MonoBehaviour
 	private int deathCount;
 	bool gameStarted = false;
 	private bool gameReady = false;
+	private bool canRestart = false;
 
 	void Start()
 	{
@@ -79,6 +80,10 @@ public class NDJGameController : MonoBehaviour
 			gameStarted = true;
 			StartCoroutine(LookAtPlayer());
 		}
+		if (canRestart && Input.anyKey)
+		{
+			SceneManager.LoadScene(1);
+		}
 	}
 
 	public void ChangeHealth(int currentHealth, int maxHealth)
@@ -119,6 +124,6 @@ public class NDJGameController : MonoBehaviour
 
 	void RestartScene()
 	{
-		SceneManager.LoadScene(1);
+		canRestart = true;
 	}
 }
