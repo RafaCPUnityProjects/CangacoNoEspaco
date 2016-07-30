@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class SlowTyper : MonoBehaviour
 {
@@ -8,6 +9,7 @@ public class SlowTyper : MonoBehaviour
 	public float letterSpeed = 0.1f;
 	public Text typedText;
 	private string currentText;
+	public int sceneToLoad = 1;
 
 	void Start()
 	{
@@ -22,6 +24,14 @@ public class SlowTyper : MonoBehaviour
 			//currentText += fullText[i];
 			typedText.text += fullText[i];
 			yield return new WaitForSeconds(letterSpeed);
+		}
+	}
+
+	void Update()
+	{
+		if (Input.anyKey)
+		{
+			SceneManager.LoadScene(sceneToLoad);
 		}
 	}
 }
