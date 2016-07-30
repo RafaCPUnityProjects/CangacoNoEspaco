@@ -7,6 +7,7 @@ public class NDJGameController : MonoBehaviour
 	public float timeToShowBoss = 5f;
 	public float timeToPlayer = 5f;
 	public HUDController hudController;
+	public GameObject grayscaleCamera;
 
 	private Transform player;
 	private Transform boss;
@@ -19,6 +20,7 @@ public class NDJGameController : MonoBehaviour
 
 	void Start()
 	{
+		grayscaleCamera.SetActive(false);
 		StartCoroutine(LookAtBoss());
 	}
 
@@ -69,7 +71,7 @@ public class NDJGameController : MonoBehaviour
 		playerController.canMove = true;
 	}
 
-	
+
 	void Update()
 	{
 		if (!gameStarted && gameReady && Input.anyKey)
@@ -98,13 +100,21 @@ public class NDJGameController : MonoBehaviour
 	{
 		deathCount = 0;
 		playerController.myBodyInfo.SaveBody();
+		ActivateGrayscale();
 		Invoke("RestartScene", 5f);
 	}
 
 	public void PlayerDefeated()
 	{
 		deathCount++;
+		ActivateGrayscale();
 		Invoke("RestartScene", 5f);
+	}
+
+	void ActivateGrayscale()
+	{
+		hudController.gameObject.SetActive(false);
+		grayscaleCamera.SetActive(true);
 	}
 
 	void RestartScene()
