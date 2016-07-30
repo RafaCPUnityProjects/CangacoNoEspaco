@@ -14,6 +14,8 @@ public class NDJGameController : MonoBehaviour
 	private NPCController playerController;
 	private NPCController bossController;
 	private int deathCount;
+	bool gameStarted = false;
+	private bool gameReady = false;
 
 	void Start()
 	{
@@ -23,25 +25,39 @@ public class NDJGameController : MonoBehaviour
 	IEnumerator LookAtBoss()
 	{
 		yield return null;
-		boss = GameObject.FindGameObjectWithTag("Boss").transform;
+		yield return null;
+		while (boss == null)
+		{
+			boss = GameObject.FindGameObjectWithTag("Boss").transform;
+			yield return null;
+		}
+		while (player == null)
+		{
+			player = GameObject.FindGameObjectWithTag("Player").transform;
+			yield return null;
+		}
+		while (cameraTarget == null)
+		{
+			cameraTarget = GameObject.FindGameObjectWithTag("CameraTarget").transform;
+			yield return null;
+		}
 		bossController = boss.GetComponent<NPCController>();
 		bossController.gameController = this;
-		player = GameObject.FindGameObjectWithTag("Player").transform;
 		playerController = player.GetComponent<NPCController>();
 		playerController.gameController = this;
 		playerController.canMove = false;
 		ChangeHealth(playerController.myBodyInfo.maxLife, playerController.myBodyInfo.maxLife);
 		ChangeStrength(playerController.myBodyInfo.strength);
 		ChangeSpeed(playerController.myBodyInfo.speed);
-		cameraTarget = GameObject.FindGameObjectWithTag("CameraTarget").transform;
 		cameraTarget.position = boss.position;
+		gameReady = true;
 		yield return null;
 		//yield return new WaitForSeconds(timeToShowBoss);
 	}
 
 	IEnumerator LookAtPlayer()
 	{
-		
+
 		float elapsedTime = 0.0f;
 		while (Vector3.Distance(cameraTarget.position, player.position) > 0.1f)
 		{
@@ -53,15 +69,10 @@ public class NDJGameController : MonoBehaviour
 		playerController.canMove = true;
 	}
 
-	bool gameStarted = false;
+	
 	void Update()
 	{
-		if (gameStarted)
-		{
-			return;
-		}
-
-		if (Input.anyKey)
+		if (!gameStarted && gameReady && Input.anyKey)
 		{
 			gameStarted = true;
 			StartCoroutine(LookAtPlayer());
