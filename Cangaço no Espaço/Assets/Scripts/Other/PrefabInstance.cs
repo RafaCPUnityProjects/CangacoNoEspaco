@@ -6,10 +6,9 @@ public class PrefabInstance : MonoBehaviour
 
 	void Awake()
 	{
-		GameObject go = (GameObject)Instantiate(prefab, transform.position, Quaternion.identity);
-		//go.transform.parent = this.transform;
-		//go.transform.localPosition = Vector3.zero;
-		//GetComponent<SpriteRenderer>().enabled = false;
-		Destroy(this.gameObject);
+		Destroy(GetComponent<tk2dSprite>());
+		GameObject go = (GameObject)Instantiate(prefab);
+		go.transform.parent = this.transform;
+		go.transform.localPosition = Vector3.zero;
 	}
 }
