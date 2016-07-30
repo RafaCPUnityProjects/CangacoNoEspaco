@@ -8,6 +8,7 @@ public class NDJGameController : MonoBehaviour
 	public float timeToPlayer = 5f;
 	public HUDController hudController;
 	public GameObject grayscaleCamera;
+	public Vector3 bossOffset;
 
 	private Transform player;
 	private Transform boss;
@@ -52,7 +53,7 @@ public class NDJGameController : MonoBehaviour
 		ChangeHealth(playerController.myBodyInfo.maxLife, playerController.myBodyInfo.maxLife);
 		ChangeStrength(playerController.myBodyInfo.strength);
 		ChangeSpeed(playerController.myBodyInfo.speed);
-		cameraTarget.position = boss.position;
+		cameraTarget.position = boss.position + bossOffset;
 		gameReady = true;
 		yield return null;
 		//yield return new WaitForSeconds(timeToShowBoss);
