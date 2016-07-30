@@ -16,11 +16,10 @@ public class NDJGameController : MonoBehaviour
 
 	void Start()
 	{
-
-		StartCoroutine("FocusBoss");
+		StartCoroutine(LookAtBoss());
 	}
 
-	IEnumerator FocusBoss()
+	IEnumerator LookAtBoss()
 	{
 		yield return null;
 		boss = GameObject.FindGameObjectWithTag("Boss").transform;
@@ -31,9 +30,14 @@ public class NDJGameController : MonoBehaviour
 		playerController.gameController = this;
 		playerController.canMove = false;
 		cameraTarget = GameObject.FindGameObjectWithTag("CameraTarget").transform;
-		yield return null;
 		cameraTarget.position = boss.position;
-		yield return new WaitForSeconds(timeToShowBoss);
+		yield return null;
+		//yield return new WaitForSeconds(timeToShowBoss);
+	}
+
+	IEnumerator LookAtPlayer()
+	{
+		
 		float elapsedTime = 0.0f;
 		while (Vector3.Distance(cameraTarget.position, player.position) > 0.1f)
 		{
@@ -43,6 +47,21 @@ public class NDJGameController : MonoBehaviour
 		}
 		cameraTarget.localPosition = Vector3.zero;
 		playerController.canMove = true;
+	}
+
+	bool gameStarted = false;
+	void Update()
+	{
+		if (gameStarted)
+		{
+			return;
+		}
+
+		if (Input.anyKey)
+		{
+			gameStarted = true;
+			StartCoroutine(LookAtPlayer());
+		}
 	}
 
 	public void BossDefeated()
