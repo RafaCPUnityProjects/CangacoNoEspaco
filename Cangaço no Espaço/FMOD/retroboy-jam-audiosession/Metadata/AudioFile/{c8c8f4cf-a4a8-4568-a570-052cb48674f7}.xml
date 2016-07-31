@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.01.08.00">
+    <object class="AudioFile" id="{c8c8f4cf-a4a8-4568-a570-052cb48674f7}">
+        <property name="assetPath">
+            <value>PDown_-Life _Vicente_8.wav</value>
+        </property>
+        <property name="frequencyInKHz">
+            <value>44.0999985</value>
+        </property>
+        <property name="channelCount">
+            <value>1</value>
+        </property>
+        <property name="length">
+            <value>0.96877551020408159</value>
+        </property>
+        <relationship name="masterAssetFolder">
+            <destination>{7bd10286-43fc-4888-8816-74eaa0222ede}</destination>
+        </relationship>
+    </object>
+</objects>

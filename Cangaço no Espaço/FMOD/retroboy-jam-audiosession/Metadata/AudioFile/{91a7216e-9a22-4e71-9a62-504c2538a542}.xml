@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.01.08.00">
+    <object class="AudioFile" id="{91a7216e-9a22-4e71-9a62-504c2538a542}">
+        <property name="assetPath">
+            <value>Boss_Death_Vicente_1.wav</value>
+        </property>
+        <property name="frequencyInKHz">
+            <value>44.0999985</value>
+        </property>
+        <property name="channelCount">
+            <value>1</value>
+        </property>
+        <property name="length">
+            <value>5.4531292517006804</value>
+        </property>
+        <relationship name="masterAssetFolder">
+            <destination>{7bd10286-43fc-4888-8816-74eaa0222ede}</destination>
+        </relationship>
+    </object>
+</objects>

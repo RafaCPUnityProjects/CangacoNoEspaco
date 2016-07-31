@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.01.08.00">
+    <object class="AudioFile" id="{13916e28-8d4a-4a7d-8f5e-15528fe6d840}">
+        <property name="assetPath">
+            <value>PDown_-Speed - Vicente_3.wav</value>
+        </property>
+        <property name="frequencyInKHz">
+            <value>44.0999985</value>
+        </property>
+        <property name="channelCount">
+            <value>1</value>
+        </property>
+        <property name="length">
+            <value>1.5781179138321995</value>
+        </property>
+        <relationship name="masterAssetFolder">
+            <destination>{7bd10286-43fc-4888-8816-74eaa0222ede}</destination>
+        </relationship>
+    </object>
+</objects>

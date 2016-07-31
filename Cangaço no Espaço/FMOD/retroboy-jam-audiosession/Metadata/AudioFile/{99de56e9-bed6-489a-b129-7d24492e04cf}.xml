@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.01.08.00">
+    <object class="AudioFile" id="{99de56e9-bed6-489a-b129-7d24492e04cf}">
+        <property name="assetPath">
+            <value>Death_Vaz_4.wav</value>
+        </property>
+        <property name="frequencyInKHz">
+            <value>44.0999985</value>
+        </property>
+        <property name="channelCount">
+            <value>1</value>
+        </property>
+        <property name="length">
+            <value>1.7031292517006802</value>
+        </property>
+        <relationship name="masterAssetFolder">
+            <destination>{7bd10286-43fc-4888-8816-74eaa0222ede}</destination>
+        </relationship>
+    </object>
+</objects>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.01.08.00">
+    <object class="AudioFile" id="{df618a7e-4e6f-44ec-b2cc-98f068e71877}">
+        <property name="assetPath">
+            <value>Hurt_Vaz_2.wav</value>
+        </property>
+        <property name="frequencyInKHz">
+            <value>44.0999985</value>
+        </property>
+        <property name="channelCount">
+            <value>1</value>
+        </property>
+        <property name="length">
+            <value>1.0156462585034014</value>
+        </property>
+        <relationship name="masterAssetFolder">
+            <destination>{7bd10286-43fc-4888-8816-74eaa0222ede}</destination>
+        </relationship>
+    </object>
+</objects>

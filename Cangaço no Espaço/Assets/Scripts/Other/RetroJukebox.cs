@@ -9,27 +9,39 @@ public class RetroJukebox : MonoBehaviour {
     [FMODUnity.EventRef]
     public string Music;
     [FMODUnity.EventRef]
-    public string NimMelee;
+    public string PAtaque;
     [FMODUnity.EventRef]
-    public string NimShoot;
+    public string PDano;
     [FMODUnity.EventRef]
-    public string PineappleExplosion;
+    public string PMorte;
     [FMODUnity.EventRef]
-    public string NimGranade;
+    public string PPVMais;
     [FMODUnity.EventRef]
-    public string PickWatermelon;
+    public string PPVMenos;
     [FMODUnity.EventRef]
-    public string PickPineapple;
+    public string PPFMais;
     [FMODUnity.EventRef]
-    public string PickApple;
+    public string PPFMenos;
     [FMODUnity.EventRef]
-    public string NimHurt;
+    public string PPLMais;
     [FMODUnity.EventRef]
-    public string PickBit;
+    public string PPLMenos;
     [FMODUnity.EventRef]
-    public string PickLife;
+    public string IDano;
     [FMODUnity.EventRef]
-    public string EnemyDeath;
+    public string IAlerta;
+    [FMODUnity.EventRef]
+    public string IMorte;
+    [FMODUnity.EventRef]
+    public string IAtaque;
+    [FMODUnity.EventRef]
+    public string BDano;
+    [FMODUnity.EventRef]
+    public string BAlerta;
+    [FMODUnity.EventRef]
+    public string BMorte;
+    [FMODUnity.EventRef]
+    public string BAtaque;
 
     FMOD.Studio.EventInstance music;
     FMOD.Studio.EventInstance pickBit;
@@ -37,7 +49,7 @@ public class RetroJukebox : MonoBehaviour {
     //save explosion position
     Vector3 explosionPosition;
 
-    bool isBitRoom;
+ 
 
 
     void Awake()
@@ -57,7 +69,7 @@ public class RetroJukebox : MonoBehaviour {
         music = FMODUnity.RuntimeManager.CreateInstance(Music);
         music.start();
 
-        pickBit = FMODUnity.RuntimeManager.CreateInstance(PickBit);
+        //pickBit = FMODUnity.RuntimeManager.CreateInstance(PickBit);
   
     }
 
@@ -70,18 +82,7 @@ public class RetroJukebox : MonoBehaviour {
 
     }
     
-    public void BitRoom(bool isActive)
-    {
-        float parameter;
-
-        if (isActive)
-            parameter = 1f;
-        else
-            parameter = 0f;
-
-		if(music != null)
-			music.setParameterValue("sala_bit", parameter);
-    }
+    
 
     void Update()
     {
@@ -98,39 +99,58 @@ public class RetroJukebox : MonoBehaviour {
     {
         switch (effectName)
         {
-            case "NimMelee":
-                FMODUnity.RuntimeManager.PlayOneShot(NimMelee, position);
+            case "PDano":
+                FMODUnity.RuntimeManager.PlayOneShot(PDano, position);
                 break;
-            case "NimShoot":
-                FMODUnity.RuntimeManager.PlayOneShot(NimShoot, position);
+            case "PMorte":
+                FMODUnity.RuntimeManager.PlayOneShot(PMorte, position);
                 break;
-            case "PineappleExplosion":
-                FMODUnity.RuntimeManager.PlayOneShot(PineappleExplosion, position);
+            case "PAtaque":
+                FMODUnity.RuntimeManager.PlayOneShot(PAtaque, position);
                 break;
-            case "NimGranade":
-                FMODUnity.RuntimeManager.PlayOneShot(NimGranade, position);
+            case "PPVMais":
+                FMODUnity.RuntimeManager.PlayOneShot(PPVMais, position);
                 break;
-            case "PickWartermeloon":
-                FMODUnity.RuntimeManager.PlayOneShot(PickWatermelon, position);
+            case "PPVMenos":
+                FMODUnity.RuntimeManager.PlayOneShot(PPVMenos, position);
                 break;
-            case "PickPineapple":
-                FMODUnity.RuntimeManager.PlayOneShot(PickPineapple, position);
+            case "PPFMais":
+                FMODUnity.RuntimeManager.PlayOneShot(PPFMais, position);
                 break;
-            case "PickApple":
-                FMODUnity.RuntimeManager.PlayOneShot(PickApple, position);
+            case "PPFMenos":
+                FMODUnity.RuntimeManager.PlayOneShot(PPFMenos, position);
                 break;
-            case "NimHurt":
-                FMODUnity.RuntimeManager.PlayOneShot(NimHurt, position);
+            case "PPLMais":
+                FMODUnity.RuntimeManager.PlayOneShot(PPLMais, position);
                 break;      
-            case "PickLife":
-                FMODUnity.RuntimeManager.PlayOneShot(PickLife, position);
+            case "PPLMenos":
+                FMODUnity.RuntimeManager.PlayOneShot(PPLMenos, position);
                 break;
-            case "EnemyDeath":
-                FMODUnity.RuntimeManager.PlayOneShot(EnemyDeath, position);
+            case "IDano":
+                FMODUnity.RuntimeManager.PlayOneShot(IDano, position);
                 break;
-            case "PickBit":
-                FMODUnity.RuntimeManager.PlayOneShot(PickBit, position);
+            case "IAlerta":
+                FMODUnity.RuntimeManager.PlayOneShot(IAlerta, position);
                 break;
+            case "IAtaque":
+                FMODUnity.RuntimeManager.PlayOneShot(IAtaque, position);
+                break;
+            case "IMorte":
+                FMODUnity.RuntimeManager.PlayOneShot(IMorte, position);
+                break;
+            case "BDano":
+                FMODUnity.RuntimeManager.PlayOneShot(BDano, position);
+                break;
+            case "BAlerta":
+                FMODUnity.RuntimeManager.PlayOneShot(BAlerta, position);
+                break;
+            case "BAtaque":
+                FMODUnity.RuntimeManager.PlayOneShot(BAtaque, position);
+                break;
+            case "BMorte":
+                FMODUnity.RuntimeManager.PlayOneShot(BMorte, position);
+                break;
+
         }
         
     }
