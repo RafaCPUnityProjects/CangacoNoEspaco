@@ -91,7 +91,7 @@ public class NDJGameController : MonoBehaviour
 		}
 		if (canRestart && Input.anyKey)
 		{
-			SceneManager.LoadScene(1);
+			ReloadScene();
 		}
 	}
 
@@ -124,7 +124,7 @@ public class NDJGameController : MonoBehaviour
 		deathCount++;
 		loseScreen.SetActive(true);
 		ActivateGrayscale();
-		Invoke("RestartScene", 5f);
+		//Invoke("RestartScene", 5f);
 	}
 
 	void ActivateGrayscale()
@@ -136,5 +136,17 @@ public class NDJGameController : MonoBehaviour
 	void RestartScene()
 	{
 		canRestart = true;
+	}
+
+	public void ResetBoss()
+	{
+		BodyInfo bodyInfo = new BodyInfo(0, 0, 0, 0, 0, 0, 0);
+		bodyInfo.SaveBody();
+		ReloadScene();
+	}
+
+	public void ReloadScene()
+	{
+		SceneManager.LoadScene(1);
 	}
 }
