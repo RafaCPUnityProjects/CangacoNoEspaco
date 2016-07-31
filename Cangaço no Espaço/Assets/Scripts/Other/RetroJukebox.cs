@@ -97,6 +97,7 @@ public class RetroJukebox : MonoBehaviour {
         Pmorte = FMODUnity.RuntimeManager.CreateInstance(PMorte);
         Iataque = FMODUnity.RuntimeManager.CreateInstance(IAtaque);
         Idano = FMODUnity.RuntimeManager.CreateInstance(IDano);
+        Imorte = FMODUnity.RuntimeManager.CreateInstance(IMorte);
         Ialerta = FMODUnity.RuntimeManager.CreateInstance(IAlerta);
         Bataque = FMODUnity.RuntimeManager.CreateInstance(BAtaque);
         MortePu = FMODUnity.RuntimeManager.CreateInstance(MortePU);

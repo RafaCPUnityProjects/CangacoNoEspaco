@@ -366,7 +366,7 @@ public class NPCController : MonoBehaviour
 		{
 			Die();
             RetroJukebox.control.Play("IMorte", transform.position);
-            RetroJukebox.control.Play("MortePU", transform.position);
+           // RetroJukebox.control.Play("MortePU", transform.position);
         }
 	}
 
