@@ -49,7 +49,7 @@ public class NPCController : MonoBehaviour
 
 	public NDJGameController gameController;
 	public bool canMove = true;
-	private float speedMultiplier = 0.01f;
+	public float speedMultiplier = 0.01f;
 
 	void Start()
 	{
@@ -181,7 +181,7 @@ public class NPCController : MonoBehaviour
 
 	void Move()
 	{
-		transform.Translate(moveVector * myBodyInfo.speed * speedMultiplier);
+		transform.Translate(moveVector * myBodyInfo.speed * speedMultiplier * Time.deltaTime);
 
 	}
 
@@ -331,6 +331,10 @@ public class NPCController : MonoBehaviour
 	public void PickHealthBuff(int healthBuff)
 	{
 		myBodyInfo.maxLife += healthBuff;
+        if(myBodyInfo.maxLife <= 0)
+        {
+            myBodyInfo.maxLife = 1;
+        }
 		RetroJukebox.control.PlayOneShot("PPLMais", transform.position);
 		PickHealth(myBodyInfo.maxLife);
 	}
@@ -338,14 +342,22 @@ public class NPCController : MonoBehaviour
 	public void PickSpeedBuff(int speedBuff)
 	{
 		myBodyInfo.speed += speedBuff;
-		RetroJukebox.control.PlayOneShot("PPVMais", transform.position);
+        if (myBodyInfo.speed <= 0)
+        {
+            myBodyInfo.speed = 1;
+        }
+        RetroJukebox.control.PlayOneShot("PPVMais", transform.position);
 		gameController.ChangeSpeed(myBodyInfo.speed);
 	}
 
 	public void PickStrengthBuff(int strengthBuff)
 	{
 		myBodyInfo.strength += (int)strengthBuff;
-		RetroJukebox.control.PlayOneShot("PPFMais", transform.position);
+        if (myBodyInfo.strength <= 0)
+        {
+            myBodyInfo.strength = 1;
+        }
+        RetroJukebox.control.PlayOneShot("PPFMais", transform.position);
 		gameController.ChangeStrength(myBodyInfo.strength);
 	}
 
