@@ -5,7 +5,7 @@
             <value>PuForMenos</value>
         </property>
         <property name="outputFormat">
-            <value>2</value>
+            <value>1</value>
         </property>
         <relationship name="mixer">
             <destination>{0f3d1e53-3184-452c-9cfa-e5f45df22470}</destination>
@@ -164,7 +164,6 @@
     <object class="MixerBusEffectChain" id="{9dea4a58-39d8-4c84-8b14-68dfaa2cdb3c}">
         <relationship name="effects">
             <destination>{12ed0fae-39ae-4e12-b561-f67d0217eb6c}</destination>
-            <destination>{e76301e9-8d6f-4a72-8663-4d0171733107}</destination>
             <destination>{cad43a0a-cfcb-43c1-bfba-39e757185e9e}</destination>
         </relationship>
     </object>
@@ -223,10 +222,9 @@
     </object>
     <object class="MixerBusPanner" id="{8073aacf-fd22-4643-8f26-da7607779541}"/>
     <object class="MixerBusFader" id="{12ed0fae-39ae-4e12-b561-f67d0217eb6c}"/>
-    <object class="SpatialiserEffect" id="{e76301e9-8d6f-4a72-8663-4d0171733107}"/>
     <object class="MixerSend" id="{cad43a0a-cfcb-43c1-bfba-39e757185e9e}">
         <property name="inputFormat">
-            <value>2</value>
+            <value>1</value>
         </property>
         <relationship name="mixerReturn">
             <destination>{348cbf73-d36c-4c43-9c73-b9f1077a90a4}</destination>

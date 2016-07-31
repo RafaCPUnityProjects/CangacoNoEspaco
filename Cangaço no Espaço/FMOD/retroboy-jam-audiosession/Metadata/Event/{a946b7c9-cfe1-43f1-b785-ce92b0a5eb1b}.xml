@@ -5,7 +5,7 @@
             <value>PULifMais</value>
         </property>
         <property name="outputFormat">
-            <value>2</value>
+            <value>1</value>
         </property>
         <relationship name="mixer">
             <destination>{05cc7ee9-a5ba-4d4e-be37-424893de71b5}</destination>
@@ -168,7 +168,6 @@
     <object class="MixerBusEffectChain" id="{7cc7e6fa-a1b5-4b99-a66e-fee2903cc6a1}">
         <relationship name="effects">
             <destination>{742e4c20-835b-45bb-8b2e-6702d2261dde}</destination>
-            <destination>{eb1a6560-aeea-4da9-bc1a-afa778bcf61c}</destination>
             <destination>{3e6083ae-1ab7-407e-a3d6-7869b36e4a1a}</destination>
         </relationship>
     </object>
@@ -233,10 +232,9 @@
     </object>
     <object class="MixerBusPanner" id="{e3456c1a-df56-4c22-838e-3d432a0a3e51}"/>
     <object class="MixerBusFader" id="{742e4c20-835b-45bb-8b2e-6702d2261dde}"/>
-    <object class="SpatialiserEffect" id="{eb1a6560-aeea-4da9-bc1a-afa778bcf61c}"/>
     <object class="MixerSend" id="{3e6083ae-1ab7-407e-a3d6-7869b36e4a1a}">
         <property name="inputFormat">
-            <value>2</value>
+            <value>1</value>
         </property>
         <relationship name="mixerReturn">
             <destination>{348cbf73-d36c-4c43-9c73-b9f1077a90a4}</destination>
@@ -284,7 +282,6 @@
         <property name="name">
             <value>FFT size</value>
         </property>
-        <property name="units"/>
         <property name="curve">
             <value>LinearPiecewiseCurveStrategy{(7.186666,256.000000)(8.000000,500.000000)(9.000000,1000.000000)(10.000000,2000.000000)(10.698667,4096.000000)}</value>
         </property>
@@ -299,7 +296,6 @@
         <property name="name">
             <value>Overlap</value>
         </property>
-        <property name="units"/>
         <property name="curve">
             <value>LinearPiecewiseCurveStrategy{(0.000000,1.000000)(1.000000,2.000000)(2.000000,5.000000)(3.000000,10.000000)(4.000000,20.000000)(4.400000,32.000000)}</value>
         </property>
