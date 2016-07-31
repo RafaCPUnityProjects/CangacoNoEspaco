@@ -309,6 +309,10 @@ public class RetroJukebox : MonoBehaviour {
                 Ialerta.set3DAttributes(FMODUnity.RuntimeUtils.To3DAttributes(position));
                 Ialerta.stop(0);
                 break;
+            case "MortePLayer":
+                MortePlayer.set3DAttributes(FMODUnity.RuntimeUtils.To3DAttributes(position));
+                MortePlayer.stop(0);
+                break;
         }
     }
 
