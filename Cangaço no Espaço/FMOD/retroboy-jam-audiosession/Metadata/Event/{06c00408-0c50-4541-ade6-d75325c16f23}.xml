@@ -56,7 +56,7 @@
             <destination>{cbbd6766-442e-437c-9591-97105835e34b}</destination>
         </relationship>
         <relationship name="output">
-            <destination>{d78183f0-40f5-4a5b-8f53-e5aaf9960195}</destination>
+            <destination>{086237e7-1ee6-41e2-8d79-e27a7039a740}</destination>
         </relationship>
     </object>
     <object class="EventAutomatableProperties" id="{8d540251-6888-4abe-81c0-b40fa91df01c}"/>
@@ -125,6 +125,9 @@
         </relationship>
     </object>
     <object class="EventMixerGroup" id="{57b63c4f-a738-4354-add2-968de4fc1de5}">
+        <property name="volume">
+            <value>-5.5</value>
+        </property>
         <property name="name">
             <value>Audio 1</value>
         </property>
@@ -249,13 +252,13 @@
             <value>0</value>
         </property>
         <property name="maximumDistance">
-            <value>1200</value>
+            <value>250</value>
         </property>
         <property name="extentMode">
             <value>1</value>
         </property>
         <property name="soundSize">
-            <value>1500</value>
+            <value>66</value>
         </property>
     </object>
     <object class="MixerSend" id="{22a67c1d-1a93-40f9-8b00-37f0f78136bc}">
