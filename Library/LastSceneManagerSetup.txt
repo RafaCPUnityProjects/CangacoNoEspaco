@@ -1,0 +1,4 @@
+sceneSetups:
+- path: "Canga\xE7o no Espa\xE7o/Assets/Scenes/NordevJam/RafaTest.unity"
+  isLoaded: 1
+  isActive: 1
