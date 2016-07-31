@@ -53,7 +53,9 @@ public class NPCController : MonoBehaviour
 
 	void Start()
 	{
-		if (NPC)
+        dead = false;
+        RetroJukebox.control.Stop("MortePLayer", transform.position);
+        if (NPC)
 		{
 			target = GameObject.FindGameObjectWithTag("Player").transform;
 		}
