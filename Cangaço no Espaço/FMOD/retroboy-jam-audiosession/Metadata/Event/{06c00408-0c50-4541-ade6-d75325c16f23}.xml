@@ -31,6 +31,9 @@
         <relationship name="parameters">
             <destination>{250a4727-0998-4afc-be1d-4e85011e9655}</destination>
         </relationship>
+        <relationship name="banks">
+            <destination>{d22c49e9-3cba-46fe-afcb-deb35ebcf4cf}</destination>
+        </relationship>
         <relationship name="folder">
             <destination>{291b9cf7-4e99-4c0d-a639-0a64465d9196}</destination>
         </relationship>
@@ -241,7 +244,20 @@
     </object>
     <object class="MixerBusPanner" id="{0eaa988c-198e-496b-bdf4-e8c5b7fbb63d}"/>
     <object class="MixerBusFader" id="{369ac838-1ecf-4327-8ab6-04c2a74186e1}"/>
-    <object class="SpatialiserEffect" id="{34312109-ff3c-40ff-9ff4-08a8c9a03495}"/>
+    <object class="SpatialiserEffect" id="{34312109-ff3c-40ff-9ff4-08a8c9a03495}">
+        <property name="minimumDistance">
+            <value>0</value>
+        </property>
+        <property name="maximumDistance">
+            <value>1200</value>
+        </property>
+        <property name="extentMode">
+            <value>1</value>
+        </property>
+        <property name="soundSize">
+            <value>1500</value>
+        </property>
+    </object>
     <object class="MixerSend" id="{22a67c1d-1a93-40f9-8b00-37f0f78136bc}">
         <property name="inputFormat">
             <value>2</value>

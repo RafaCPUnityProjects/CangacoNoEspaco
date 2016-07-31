@@ -45,6 +45,9 @@ public class RetroJukebox : MonoBehaviour {
 
     FMOD.Studio.EventInstance music;
     FMOD.Studio.EventInstance pickBit;
+    FMOD.Studio.EventInstance Pataque;
+    FMOD.Studio.EventInstance Iataque;
+    FMOD.Studio.EventInstance Bataque;
 
     //save explosion position
     Vector3 explosionPosition;
@@ -68,6 +71,10 @@ public class RetroJukebox : MonoBehaviour {
     {
         music = FMODUnity.RuntimeManager.CreateInstance(Music);
         music.start();
+        Pataque = FMODUnity.RuntimeManager.CreateInstance(PAtaque);
+        Iataque = FMODUnity.RuntimeManager.CreateInstance(IAtaque);
+        Bataque = FMODUnity.RuntimeManager.CreateInstance(BAtaque);
+        
 
         //pickBit = FMODUnity.RuntimeManager.CreateInstance(PickBit);
   
@@ -163,7 +170,7 @@ public class RetroJukebox : MonoBehaviour {
 
     void FxExplosion()
     {
-        FMODUnity.RuntimeManager.PlayOneShot(PineappleExplosion, explosionPosition);
+        //FMODUnity.RuntimeManager.PlayOneShot(PineappleExplosion, explosionPosition);
     }
 
     public void Play(string effectName, Vector3 position)
@@ -174,6 +181,18 @@ public class RetroJukebox : MonoBehaviour {
                 pickBit.set3DAttributes(FMODUnity.RuntimeUtils.To3DAttributes(position));
                 pickBit.start();
               break;
+            case "PAtaque":
+                Pataque.set3DAttributes(FMODUnity.RuntimeUtils.To3DAttributes(position));
+                Pataque.start();
+                break;
+            case "IAtaque":
+                Iataque.set3DAttributes(FMODUnity.RuntimeUtils.To3DAttributes(position));
+                Iataque.start();
+                break;
+            case "BAtaque":
+                Bataque.set3DAttributes(FMODUnity.RuntimeUtils.To3DAttributes(position));
+                Bataque.start();
+                break;
         }
 
     }

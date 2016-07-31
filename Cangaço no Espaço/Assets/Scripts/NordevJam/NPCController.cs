@@ -103,7 +103,9 @@ public class NPCController : MonoBehaviour
 				if (myBodyInfo.knife != -1)
 				{
 					myAnimator.SetTrigger("Attack");
-				}
+                    RetroJukebox.control.Play("PAtaque", transform.position);
+
+                }
 			}
 
 			//if (Input.GetButtonDown("Fire2"))
@@ -133,7 +135,9 @@ public class NPCController : MonoBehaviour
 						if (myBodyInfo.knife != -1)
 						{
 							myAnimator.SetTrigger("Attack");
-						}
+                            RetroJukebox.control.PlayOneShot("IAlerta", transform.position);
+                            RetroJukebox.control.Play("IAtaque", transform.position);
+                        }
 					}
 				}
 			}

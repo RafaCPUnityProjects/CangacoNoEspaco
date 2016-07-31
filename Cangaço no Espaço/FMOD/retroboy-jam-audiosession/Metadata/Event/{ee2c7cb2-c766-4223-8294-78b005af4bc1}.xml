@@ -28,6 +28,9 @@
         <relationship name="timeline">
             <destination>{d1c94f9b-6664-47e0-be7b-d2d299ddc985}</destination>
         </relationship>
+        <relationship name="banks">
+            <destination>{d22c49e9-3cba-46fe-afcb-deb35ebcf4cf}</destination>
+        </relationship>
         <relationship name="folder">
             <destination>{7bbcfcae-a278-4782-b663-a321b76d5e62}</destination>
         </relationship>
@@ -103,6 +106,9 @@
         </relationship>
     </object>
     <object class="EventMixerGroup" id="{f37ed928-8eea-414a-9d2d-983ff9f64f0d}">
+        <property name="volume">
+            <value>-16.5</value>
+        </property>
         <property name="name">
             <value>Audio 1</value>
         </property>

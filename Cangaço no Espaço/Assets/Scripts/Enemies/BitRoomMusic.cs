@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class BitRoomMusic : MonoBehaviour {
+/*public class BitRoomMusic : MonoBehaviour {
 
 	void OnEnable () {
         if(RetroJukebox.control != null)
@@ -18,4 +18,4 @@ public class BitRoomMusic : MonoBehaviour {
         if (RetroJukebox.control != null)
             RetroJukebox.control.BitRoom(false);
     }
-}
+}*/
