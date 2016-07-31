@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class NDJGameController : MonoBehaviour
 {
@@ -12,16 +13,24 @@ public class NDJGameController : MonoBehaviour
 	public GameObject splashScreen;
 	public GameObject winScreen;
 	public GameObject loseScreen;
+	public Text barrilYears;
 
 	private Transform player;
 	private Transform boss;
 	private Transform cameraTarget;
 	private NPCController playerController;
 	private NPCController bossController;
-	private int deathCount;
+
 	bool gameStarted = false;
 	private bool gameReady = false;
 	private bool canRestart = false;
+	private bool bossDefeated = false;
+
+	public int deathCount
+	{
+		get { return PlayerPrefs.GetInt("DeathCount", 0); }
+		set { PlayerPrefs.SetInt("DeathCount", value); }
+	}
 
 	void Start()
 	{
@@ -59,6 +68,7 @@ public class NDJGameController : MonoBehaviour
 		ChangeStrength(playerController.myBodyInfo.strength);
 		ChangeSpeed(playerController.myBodyInfo.speed);
 		splashScreen.SetActive(true);
+		barrilYears.text = ((1 + deathCount) * 10).ToString();
 		hudController.gameObject.SetActive(false);
 		cameraTarget.position = boss.position + bossOffset;
 		gameReady = true;
@@ -117,10 +127,15 @@ public class NDJGameController : MonoBehaviour
 		winScreen.SetActive(true);
 		ActivateGrayscale();
 		Invoke("RestartScene", 5f);
+		bossDefeated = true;
 	}
 
 	public void PlayerDefeated()
 	{
+		if (bossDefeated)
+		{
+			return;
+		}
 		deathCount++;
 		loseScreen.SetActive(true);
 		ActivateGrayscale();
