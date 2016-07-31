@@ -44,7 +44,9 @@ public class RetroJukebox : MonoBehaviour {
     public string BAtaque;
     [FMODUnity.EventRef]
     public string MortePU;
-    
+    [FMODUnity.EventRef]
+    public string MortePLayer;
+
 
     FMOD.Studio.EventInstance music;
     FMOD.Studio.EventInstance Pataque;
@@ -59,6 +61,8 @@ public class RetroJukebox : MonoBehaviour {
     FMOD.Studio.EventInstance Bmorte;
     FMOD.Studio.EventInstance Bataque;
     FMOD.Studio.EventInstance MortePu;
+    FMOD.Studio.EventInstance MortePlayer;
+
 
     //save explosion position
     Vector3 explosionPosition;
@@ -80,8 +84,6 @@ public class RetroJukebox : MonoBehaviour {
 
     void Start()
     {
-        music = FMODUnity.RuntimeManager.CreateInstance(Music);
-        music.start();
         Pataque = FMODUnity.RuntimeManager.CreateInstance(PAtaque);
         Pdano = FMODUnity.RuntimeManager.CreateInstance(PDano);
         Pmorte = FMODUnity.RuntimeManager.CreateInstance(PMorte);
@@ -90,6 +92,10 @@ public class RetroJukebox : MonoBehaviour {
         Ialerta = FMODUnity.RuntimeManager.CreateInstance(IAlerta);
         Bataque = FMODUnity.RuntimeManager.CreateInstance(BAtaque);
         MortePu = FMODUnity.RuntimeManager.CreateInstance(MortePU);
+        MortePlayer = FMODUnity.RuntimeManager.CreateInstance(MortePLayer);
+        music = FMODUnity.RuntimeManager.CreateInstance(Music);
+        music.start();
+        
 
 
         //pickBit = FMODUnity.RuntimeManager.CreateInstance(PickBit);
@@ -100,8 +106,7 @@ public class RetroJukebox : MonoBehaviour {
     {
         if(music != null)
             music.release();
-        if (pickBit != null)
-            pickBit.release();
+        
 
     }
     
@@ -211,44 +216,50 @@ public class RetroJukebox : MonoBehaviour {
                 break;
                 //AQUI
             case "PDano":
-                Ialerta.set3DAttributes(FMODUnity.RuntimeUtils.To3DAttributes(position));
-                Ialerta.start(); break;
+                Pdano.set3DAttributes(FMODUnity.RuntimeUtils.To3DAttributes(position));
+                Pdano.start(); break;
             case "PMorte":
-                Ialerta.set3DAttributes(FMODUnity.RuntimeUtils.To3DAttributes(position));
-                Ialerta.start(); break;
-            case "PPVMais":
-                Ialerta.set3DAttributes(FMODUnity.RuntimeUtils.To3DAttributes(position));
-                Ialerta.start(); break;
-            case "PPVMenos":
-                Ialerta.set3DAttributes(FMODUnity.RuntimeUtils.To3DAttributes(position));
-                Ialerta.start(); break;
-            case "PPFMais":
-                Ialerta.set3DAttributes(FMODUnity.RuntimeUtils.To3DAttributes(position));
-                Ialerta.start(); break;
-            case "PPFMenos":
-                Ialerta.set3DAttributes(FMODUnity.RuntimeUtils.To3DAttributes(position));
-                Ialerta.start(); break;
-            case "PPLMais":
-                Ialerta.set3DAttributes(FMODUnity.RuntimeUtils.To3DAttributes(position));
-                Ialerta.start(); break;
-            case "PPLMenos":
-                Ialerta.set3DAttributes(FMODUnity.RuntimeUtils.To3DAttributes(position));
-                Ialerta.start(); break;
+                Pmorte.set3DAttributes(FMODUnity.RuntimeUtils.To3DAttributes(position));
+                Pmorte.start(); break;
+            case "MortePLayer":
+                MortePlayer.set3DAttributes(FMODUnity.RuntimeUtils.To3DAttributes(position));
+                MortePlayer.start(); break;
+            /* case "PPVMais":
+                 Ialerta.set3DAttributes(FMODUnity.RuntimeUtils.To3DAttributes(position));
+                 Ialerta.start(); break;
+             case "PPVMenos":
+                 Ialerta.set3DAttributes(FMODUnity.RuntimeUtils.To3DAttributes(position));
+                 Ialerta.start(); break;
+             case "PPFMais":
+                 Ialerta.set3DAttributes(FMODUnity.RuntimeUtils.To3DAttributes(position));
+                 Ialerta.start(); break;
+             case "PPFMenos":
+                 Ialerta.set3DAttributes(FMODUnity.RuntimeUtils.To3DAttributes(position));
+                 Ialerta.start(); break;
+             case "PPLMais":
+                 Ialerta.set3DAttributes(FMODUnity.RuntimeUtils.To3DAttributes(position));
+                 Ialerta.start(); break;
+             case "PPLMenos":
+                 Ialerta.set3DAttributes(FMODUnity.RuntimeUtils.To3DAttributes(position));
+                 Ialerta.start(); break;*/
             case "IDano":
-                Ialerta.set3DAttributes(FMODUnity.RuntimeUtils.To3DAttributes(position));
-                Ialerta.start(); break;
+                Idano.set3DAttributes(FMODUnity.RuntimeUtils.To3DAttributes(position));
+                Idano.start(); break;
             case "IMorte":
-                Ialerta.set3DAttributes(FMODUnity.RuntimeUtils.To3DAttributes(position));
-                Ialerta.start(); break;
+                Imorte.set3DAttributes(FMODUnity.RuntimeUtils.To3DAttributes(position));
+                Imorte.start(); break;
             case "BDano":
-                Ialerta.set3DAttributes(FMODUnity.RuntimeUtils.To3DAttributes(position));
-                Ialerta.start(); break;
+                Bdano.set3DAttributes(FMODUnity.RuntimeUtils.To3DAttributes(position));
+                Bdano.start(); break;
             case "BAlerta":
-                Ialerta.set3DAttributes(FMODUnity.RuntimeUtils.To3DAttributes(position));
-                Ialerta.start(); break;
+                Balerta.set3DAttributes(FMODUnity.RuntimeUtils.To3DAttributes(position));
+                Balerta.start(); break;
             case "BMorte":
-                Ialerta.set3DAttributes(FMODUnity.RuntimeUtils.To3DAttributes(position));
-                Ialerta.start(); break;
+                Bmorte.set3DAttributes(FMODUnity.RuntimeUtils.To3DAttributes(position));
+                Bmorte.start(); break;
+            case "MortePU":
+                MortePu.set3DAttributes(FMODUnity.RuntimeUtils.To3DAttributes(position));
+                MortePu.start(); break;
         }
 
     }
@@ -257,6 +268,18 @@ public class RetroJukebox : MonoBehaviour {
     {
         switch (effectName)
         {
+            case "IAtaque":
+                Iataque.set3DAttributes(FMODUnity.RuntimeUtils.To3DAttributes(position));
+                Iataque.stop(0);
+                break;
+            case "PAtaque":
+                Pataque.set3DAttributes(FMODUnity.RuntimeUtils.To3DAttributes(position));
+                Pataque.stop(0);
+                break;
+            case "BAtaque":
+                Bataque.set3DAttributes(FMODUnity.RuntimeUtils.To3DAttributes(position));
+                Bataque.stop(0);
+                break;
             case "IAlerta":
                 Ialerta.set3DAttributes(FMODUnity.RuntimeUtils.To3DAttributes(position));
                 Ialerta.stop(0);

@@ -31,7 +31,7 @@ public class NPCController : MonoBehaviour
 	[Range(0.0f, 1.0f)]
 	public float dropChance;
 
-	public float minDistance = 4f;
+	public float minDistance = 1f;
 	public float maxDistance = 5f;
 	public bool imTheBoss = false;
 
@@ -127,12 +127,17 @@ public class NPCController : MonoBehaviour
 			//Debug.Log("Hit: " + hit.collider.name);
 			//if (hit.collider.tag != "Wall")
 			//{
-			if (distance < maxDistance)        
-            {             
+            if (distance < minDistance)
+                RetroJukebox.control.Play("IAlerta", transform.position);
+            if (distance < maxDistance)
+            {
+               
                 if (distance > minDistance)
 				{
-					moveVector = Vector3.Normalize(target.position - transform.position);
-                    RetroJukebox.control.Play("IAlerta", transform.position);
+                   
+                    moveVector = Vector3.Normalize(target.position - transform.position);
+                               
+
                 }
 				else
 				{
@@ -323,21 +328,21 @@ public class NPCController : MonoBehaviour
 	public void PickHealthBuff(int healthBuff)
 	{
 		myBodyInfo.maxLife += healthBuff;
-        RetroJukebox.control.Play("PPLMais", transform.position);
+        RetroJukebox.control.PlayOneShot("PPLMais", transform.position);
         PickHealth(myBodyInfo.maxLife);
 	}
 
 	public void PickSpeedBuff(int speedBuff)
 	{
 		myBodyInfo.speed += speedBuff;
-        RetroJukebox.control.Play("PPVMais", transform.position);
+        RetroJukebox.control.PlayOneShot("PPVMais", transform.position);
         gameController.ChangeSpeed(myBodyInfo.speed);
 	}
 
 	public void PickStrengthBuff(int strengthBuff)
 	{
 		myBodyInfo.strength += (int)strengthBuff;
-        RetroJukebox.control.Play("PPFMais", transform.position);
+        RetroJukebox.control.PlayOneShot("PPFMais", transform.position);
         gameController.ChangeStrength(myBodyInfo.strength);
 	}
 
@@ -346,15 +351,18 @@ public class NPCController : MonoBehaviour
 		Debug.Log(name + " took " + strength + " damage");
 		currentLife -= strength;
         RetroJukebox.control.Play("IDano", transform.position);
+        RetroJukebox.control.Stop("IAtaque", transform.position);
         if (!NPC)
 		{
 			gameController.ChangeHealth(currentLife, myBodyInfo.maxLife);
             RetroJukebox.control.Play("PDano", transform.position);
+            RetroJukebox.control.Stop("PAtaque", transform.position);
         }
 		if (currentLife <= 0)
 		{
 			Die();
-            RetroJukebox.control.PlayOneShot("IMorte", transform.position);
+            RetroJukebox.control.Play("IMorte", transform.position);
+            RetroJukebox.control.Play("MortePU", transform.position);
         }
 	}
 
@@ -362,13 +370,15 @@ public class NPCController : MonoBehaviour
 	{
 		dead = true;
 		myAnimator.SetTrigger("Dead");
-		if (NPC)
+        RetroJukebox.control.Stop("IAlerta", transform.position);
+        if (NPC)
 		{
 
 			if (imTheBoss)
 			{
 				gameController.BossDefeated();
                 RetroJukebox.control.Play("BMorte", transform.position);
+                RetroJukebox.control.Play("MortePLayer", transform.position);
             }
 			else
 			{
@@ -379,6 +389,7 @@ public class NPCController : MonoBehaviour
 		{
 			gameController.PlayerDefeated();
             RetroJukebox.control.Play("PMorte", transform.position);
+            RetroJukebox.control.Play("MortePLayer", transform.position);
         }
 	}
 
