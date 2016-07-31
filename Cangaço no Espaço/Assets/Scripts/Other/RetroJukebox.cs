@@ -46,6 +46,14 @@ public class RetroJukebox : MonoBehaviour {
     public string MortePU;
     [FMODUnity.EventRef]
     public string MortePLayer;
+    [FMODUnity.EventRef]
+    public string Texto;
+    [FMODUnity.EventRef]
+    public string BateBarril;
+    [FMODUnity.EventRef]
+    public string Grama;
+    [FMODUnity.EventRef]
+    public string Dobrado;
 
 
     FMOD.Studio.EventInstance music;
@@ -62,7 +70,7 @@ public class RetroJukebox : MonoBehaviour {
     FMOD.Studio.EventInstance Bataque;
     FMOD.Studio.EventInstance MortePu;
     FMOD.Studio.EventInstance MortePlayer;
-
+    FMOD.Studio.EventInstance texto;
 
     //save explosion position
     Vector3 explosionPosition;
@@ -93,6 +101,7 @@ public class RetroJukebox : MonoBehaviour {
         Bataque = FMODUnity.RuntimeManager.CreateInstance(BAtaque);
         MortePu = FMODUnity.RuntimeManager.CreateInstance(MortePU);
         MortePlayer = FMODUnity.RuntimeManager.CreateInstance(MortePLayer);
+        texto = FMODUnity.RuntimeManager.CreateInstance(Texto);
         music = FMODUnity.RuntimeManager.CreateInstance(Music);
         music.start();
         
@@ -178,6 +187,18 @@ public class RetroJukebox : MonoBehaviour {
             case "BMorte":
                 FMODUnity.RuntimeManager.PlayOneShot(BMorte, position);
                 break;
+            case "Texto":
+                FMODUnity.RuntimeManager.PlayOneShot(Texto, position);
+                break;
+            case "BateBarril":
+                FMODUnity.RuntimeManager.PlayOneShot(BateBarril, position);
+                break;
+            case "Grama":
+                FMODUnity.RuntimeManager.PlayOneShot(Grama, position);
+                break;
+            case "Dobrado":
+                FMODUnity.RuntimeManager.PlayOneShot(Dobrado, position);
+                break;
 
         }
         
@@ -224,6 +245,9 @@ public class RetroJukebox : MonoBehaviour {
             case "MortePLayer":
                 MortePlayer.set3DAttributes(FMODUnity.RuntimeUtils.To3DAttributes(position));
                 MortePlayer.start(); break;
+            case "Texto":
+                texto.set3DAttributes(FMODUnity.RuntimeUtils.To3DAttributes(position));
+                texto.start(); break;
             /* case "PPVMais":
                  Ialerta.set3DAttributes(FMODUnity.RuntimeUtils.To3DAttributes(position));
                  Ialerta.start(); break;

@@ -24,7 +24,8 @@ public class SlowTyper : MonoBehaviour
 			//currentText += fullText[i];
 			typedText.text += fullText[i];
 			yield return new WaitForSeconds(letterSpeed);
-		}
+            RetroJukebox.control.PlayOneShot("Texto", transform.position);
+        }
 	}
 
 	void Update()

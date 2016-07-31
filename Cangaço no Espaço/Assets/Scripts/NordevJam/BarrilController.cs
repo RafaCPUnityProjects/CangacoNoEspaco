@@ -30,7 +30,8 @@ public class BarrilController : MonoBehaviour
 		else
 		{
 			GetComponent<tk2dSprite>().SetSprite(barrilDoubledId);
-			GetComponent<BoxCollider2D>().enabled = false;
+            RetroJukebox.control.PlayOneShot("Dobrado", transform.position);
+            GetComponent<BoxCollider2D>().enabled = false;
 		}
 	}
 }

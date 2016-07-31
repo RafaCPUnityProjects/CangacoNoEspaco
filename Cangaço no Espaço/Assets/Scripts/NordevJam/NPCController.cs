@@ -82,13 +82,17 @@ public class NPCController : MonoBehaviour
 					other.transform.parent.parent.GetComponent<NPCController>().TakeDamage(myBodyInfo.strength);
 				}
 				else if (other.tag == "Tall Grass")
-				{
+                    
+                {
 					Destroy(other.gameObject);
-				}
+                    RetroJukebox.control.PlayOneShot("Grama", transform.position);
+                }
 				else if (other.tag == "Barril")
 				{
 					other.GetComponent<BarrilController>().DropItem();
-				}
+                    RetroJukebox.control.PlayOneShot("BateBarril", transform.position);
+
+                }
 			}
 		}
 	}
