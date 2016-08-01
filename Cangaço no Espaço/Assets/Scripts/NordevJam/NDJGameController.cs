@@ -157,6 +157,7 @@ public class NDJGameController : MonoBehaviour
 	{
 		BodyInfo bodyInfo = new BodyInfo(0, 0, 0, 0, 0, 0, 0);
 		bodyInfo.SaveBody();
+		deathCount = 0;
 		ReloadScene();
 	}
 
